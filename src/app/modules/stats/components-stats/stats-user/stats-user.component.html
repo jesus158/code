@@ -1,0 +1,56 @@
+<nz-card>
+  <div class="grid">
+    <div
+      class="col-12 md:col-6 lg:col-4 flex justify-content-center align-items-center"
+    >
+      <img src="../../../assets/stats/user.png" alt="" />
+    </div>
+    <div class="col-12 md:col-6 lg:col-8">
+      <div class="grid">
+        <div class="col-12 md:col-12 lg:col-12">
+          <div class="grid">
+            <div class="col-6 md:col-6 lg:col-6">
+              <h2>Usuarios</h2>
+            </div>
+            <div class="col-6 md:col-6 lg:col-6 flex justify-content-end">
+              <nz-card
+                (click)="onUser()"
+                class="card-user-new flex align-items-center justify-content-center"
+              >
+                <i class="pi pi-plus"></i
+              ></nz-card>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-12 lg:col-12">
+          <nz-card class="card-user">
+            <div class="grid">
+              <div class="col-12 md:col-12 lg:col-12" *ngFor="let user of user">
+                <nz-card>
+                  {{ user.user_name }}
+                  <p-badge
+                    [value]="user.user_is_delete ? 'Inactivo' : 'Activo'"
+                    [style]="{
+                      'background-color':
+                        '' + user.user_is_delete ? '#22a055' : '#892525' + ''
+                    }"
+                  ></p-badge>
+                </nz-card>
+              </div>
+              <!-- <div
+                class="col-12 md:col-12 lg:col-12"
+                *ngIf="user == null || undefined"
+              >
+                <p-messages
+                  [(value)]="messages"
+                  [enableService]="false"
+                  [closable]="false"
+                ></p-messages>
+              </div> -->
+            </div>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</nz-card>

@@ -1,0 +1,80 @@
+<nz-layout>
+  <div class="grid">
+    <div class="col-12 md:col-6 flex justify-content-start align-content-center flex-wrap">
+      <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="{{ name }}" />
+    </div>
+  </div>
+  <br />
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-6">
+      <div class="p-fluid grid flex justify-content-center">
+        <div class="field col-12 md:col-10">
+          <span class="p-float-label">
+            <input
+              id="float-input"
+              type="text"
+              pInputText
+              (keyup)="Search($event)"
+              (input)="inputValidator($event)"
+            />
+            <label for="float-input">Buscar negocios</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="field col-12 md:col-6">
+      <div class="p-fluid grid flex justify-content-center">
+        <div class="field col-12 md:col-10 lg:col-6">
+          <button
+            (click)="onBusinessForm()"
+            pButton
+            type="button"
+            label="Crear nuevo negocio"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <br />
+  <div class="grid">
+    <div class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center">
+      <p-messages [(value)]="messages" [enableService]="false" [closable]="false" />
+    </div>
+  </div>
+  <div class="grid p-5">
+    <div *ngFor="let business of business" class="col-12 md:col-4 lg:col-3">
+      <div class="grid">
+        <div class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center">
+          <nz-card [nzBodyStyle]="{ height: '375px' }" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+            <div class="grid">
+              <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+                <img class="header-img" src="{{business.business_image ?? 'assets/blanco.jpg'}}" alt="Logo de negocio {{business.business_name}}" />
+              </div>
+              <nz-divider></nz-divider>
+            </div>
+            <nz-card-meta nzTitle="{{ business.business_name }}" nzDescription="{{ business.business_description }}" />
+            <ng-template #actionSetting>
+              <span nz-popconfirm nzPopconfirmTitle="¿Deseas eliminar este negocio?"
+                (nzOnConfirm)="disableBusiness(business.business_uid)" nzOkType="danger" 
+                nz-icon nzType="delete"
+                [nzTheme]="'twotone'" [nzTwotoneColor]="'#ff4d4f'">
+              </span>
+            </ng-template>
+            <ng-template #actionEdit>
+              <span nz-popconfirm nzPopconfirmTitle="¿Deseas actualizar este negocio?" 
+                (nzOnConfirm)="onBusinessEdit(business)" nzOkType="primary"
+                nz-icon nzType="edit"
+                [nzTheme]="'twotone'" [nzTwotoneColor]="'#1890ff'">
+              </span>
+            </ng-template>
+            <ng-template #actionEllipsis>
+              <span (click)="GotoBusiness(business.business_uid)" nz-icon nzType="home" [nzTheme]="'twotone'" [nzTwotoneColor]="'#00B041'"></span>
+            </ng-template>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</nz-layout>
+<nz-footer></nz-footer>

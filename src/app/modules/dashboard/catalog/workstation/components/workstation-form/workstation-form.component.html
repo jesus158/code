@@ -1,0 +1,78 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <nz-card>
+      <div class="grid">
+        <div class="col-6 md:col-6 lg:col-6 flex justify-content-start align-content-center flex-wrap">
+          <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Formulario" nzSubtitle="Puestos de trabajo"></nz-page-header>
+        </div>
+      </div>
+      <form [formGroup]="WorkstationForm" (ngSubmit)="Save()">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-12">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-building"></i>
+              <input
+                type="text"
+                id="workstation_description"
+                pInputText
+                name="workstation_description"
+                formControlName="workstation_description"
+              />
+              <label for="workstation_description">Descripción</label>
+            </span>
+            <div
+              *ngIf="
+                WorkstationForm.get('workstation_description')?.invalid &&
+                WorkstationForm.get('workstation_description')?.errors &&
+                (WorkstationForm.get('workstation_description')?.dirty ||
+                  WorkstationForm.get('workstation_description')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  WorkstationForm.get('workstation_description')?.hasError(
+                    'required'
+                  )
+                "
+              >
+                <p>Necesitas ingresar la descripción</p>
+              </small>
+            </div>
+          </div>
+        </div>
+        <nz-divider></nz-divider>
+        <div class="p-fluid grid">
+          <div
+            *ngIf="!workstation_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button
+                class="btn-save"
+                pButton
+                pRipple
+                type="submit"
+                label="GUARDAR"
+              ></button>
+            </div>
+          </div>
+          <div
+            *ngIf="workstation_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button
+                class="btn-update"
+                pButton
+                pRipple
+                type="submit"
+                label="ACTUALIZAR"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

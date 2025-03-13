@@ -1,0 +1,42 @@
+<nz-card class="card-header">
+  <nz-card class="card-chat">
+    <div class="p-fluid grid">
+      <div
+        class="col-12 md:col-12 lg:col-12"
+        *ngFor="let comments of comments$ | async"
+      >
+        <nz-card class="comments">
+          {{ comments.comments_description }}
+        </nz-card>
+      </div>
+      <div class="col-12 md:col-12 lg:col-12">
+        <p-messages
+          [(value)]="messages"
+          [enableService]="false"
+          [closable]="false"
+        ></p-messages>
+      </div>
+    </div>
+  </nz-card>
+  <br />
+  <form [formGroup]="CommentsForm" (ngSubmit)="sendMessage()">
+    <div class="p-fluid grid">
+      <div class="field col-12 md:col-8 lg:col-8">
+        <span class="p-float-label">
+          <textarea
+            id="float-input"
+            rows="5"
+            cols="30"
+            formControlName="comments_description"
+            pInputTextarea
+            [autoResize]="true"
+          ></textarea>
+          <label for="float-input">Escribe un comentario</label>
+        </span>
+      </div>
+      <div class="field col-12 md:col-4 lg:col-4">
+        <button pButton pRipple type="submit" label="Enviar"></button>
+      </div>
+    </div>
+  </form>
+</nz-card>

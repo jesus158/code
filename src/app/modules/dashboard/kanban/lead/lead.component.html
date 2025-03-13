@@ -1,0 +1,27 @@
+<div
+  cdkDropList
+  [cdkDropListData]="lead"
+  class="example-list"
+  (cdkDropListDropped)="drop($event)"
+>
+  <article class="example-box" *ngFor="let lead of lead" cdkDrag>
+    <div class="grid">
+      <div class="col-12">
+        <div class="flex justify-content-between">
+          <h1 class="white-space-nowrap overflow-hidden text-overflow-ellipsis">{{ lead.lead_company }}</h1>
+          <span nz-icon nzType="audit" nzTheme="outline" style="font-size: 22px; color: #08c; cursor: pointer;" (click)="details(lead.lead_uid)"></span>
+        </div>
+        <h4>{{ lead.lead_save_date | date : "dd/MM/yyyy HH:mm" }}</h4>
+      </div>
+      <div class="col-6">
+        <h3>{{ lead.lead_code_generated }}</h3>
+        <p>Correo: {{ lead.lead_email }}</p>
+        <p>Tel: {{ lead.lead_phone }}</p>
+      </div>
+      <nz-divider class="divider"></nz-divider>
+      <div class="col-12">
+        <app-lead-options [lead]="lead" type="lead" (refresh)="refresh.emit()"/>
+      </div>
+    </div>
+  </article>
+</div>

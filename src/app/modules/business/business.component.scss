@@ -1,0 +1,49 @@
+nz-layout {
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+.ant-card-cover {
+  height: 100px !important;
+}
+
+nz-card {
+  width: 100% !important;
+  border-radius: 20px !important;
+}
+
+.header-img {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 100% !important;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+}
+
+/* .card-business {
+  height: 500px !important;
+} */
+
+.header-image {
+  width: 200px !important;
+}
+
+nz-header {
+  padding: 0;
+  width: 100%;
+  z-index: 2;
+  background: #ffffff !important;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+}
+
+nz-footer {
+  background-color: #ffffff !important;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+}
+
+img {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}

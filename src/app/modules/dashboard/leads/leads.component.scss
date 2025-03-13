@@ -1,0 +1,21 @@
+nz-card {
+  width: 100% !important;
+  border-radius: 20px !important;
+}
+
+p-badge {
+  margin-left: 5px !important;
+  cursor: pointer !important;
+}
+
+.card {
+  cursor: pointer !important;
+  /*   background-color: #d3fff2 !important; */
+}
+
+.card:hover {
+  -webkit-transform: scale(1.03) !important;
+  -moz-transform: scale(1.03) !important;
+  -o-transform: scale(1.03) !important;
+  transform: scale(1.03) !important;
+}

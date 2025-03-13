@@ -1,0 +1,63 @@
+<form [formGroup]="ActivitiesForm" (ngSubmit)="Save()">
+  <br />
+  <div class="p-fluid grid flex justify-content-center">
+    <div class="field col-12 md:col-6 lg:col-6">
+      <span class="p-float-label">
+        <p-calendar id="activities_date" name="activities_date" formControlName="activities_date"></p-calendar>
+        <label for="activities_date">Fecha</label>
+      </span>
+      <div *ngIf="ActivitiesForm.get('activities_date')?.invalid && ActivitiesForm.get('activities_date')?.errors 
+      && (ActivitiesForm.get('activities_date')?.dirty || ActivitiesForm.get('activities_date')?.touched)">
+        <small class="text-danger" *ngIf="ActivitiesForm.get('activities_date')?.hasError('required')">
+          <p>Necesitas ingresar la fecha de actividad</p>
+        </small>
+      </div>
+    </div>
+    <div class="fiel col-12 md:col-6 lg:col-6">
+      <span class="p-float-label">
+        <p-dropdown [options]="activitiesType" [(ngModel)]="activityModel" [ngModelOptions]="{ standalone: true }" placeholder="Descripción de actividad"
+        optionLabel="name"inputId="float-label"></p-dropdown>
+        <label for="float-label">Tipo de actividad</label>
+      </span>
+      <div *ngIf="ActivitiesForm.get('activities_type')?.invalid && ActivitiesForm.get('activities_type')?.errors
+      && (ActivitiesForm.get('activities_type')?.dirty || ActivitiesForm.get('activities_type')?.touched)">
+        <small class="text-danger" *ngIf="ActivitiesForm.get('activities_type')?.hasError('required')">
+          <p>Necesitas seleccionar tipo de actividad</p>
+        </small>
+      </div>
+    </div>
+    <div class="field col-12 md:col-12 lg:col-12">
+      <span class="p-float-label">
+        <input type="text" id="activities_description" pInputText name="activities_description" formControlName="activities_description"/>
+        <label for="activities_description">Descripción de la actividad</label>
+      </span>
+      <div *ngIf="ActivitiesForm.get('activities_description')?.invalid && ActivitiesForm.get('activities_description')?.errors
+      && (ActivitiesForm.get('activities_description')?.dirty || ActivitiesForm.get('activities_description')?.touched)">
+        <small class="text-danger" *ngIf="ActivitiesForm.get('activities_description')?.hasError('required')">
+          <p>Necesitas ingresar descripcion</p>
+        </small>
+      </div>
+    </div>
+    <div class="field col-12 md:col-12 lg:col-12">
+      <span class="p-float-label">
+        <p-dropdown [options]="user" formControlName="activities_assign_to" placeholder="¿A quién asignar la tarea?"
+        optionLabel="user_name" inputId="float-label"></p-dropdown>
+        <label for="float-label">¿A quién asignar la tarea?</label>
+      </span>
+      <div *ngIf="ActivitiesForm.get('activities_assign_to')?.invalid && ActivitiesForm.get('activities_assign_to')?.errors
+      && (ActivitiesForm.get('activities_assign_to')?.dirty || ActivitiesForm.get('activities_assign_to')?.touched)">
+        <small class="text-danger" *ngIf="ActivitiesForm.get('activities_assign_to')?.hasError('required')">
+          <p>Necesitas seleccionar a quien asignar</p>
+        </small>
+      </div>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <div class="p-fluid grid">
+    <div class="col-12 md:col-12 flex justify-content-center">
+      <div class="field col-12 md:col-4">
+        <button pButton pRipple type="submit" label="Agregar"></button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,193 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+  >
+    <nz-card>
+      <h4>AJUSTES GENERALES</h4>
+      <p>
+        Puedes cambiar la dirección de tu cuenta. Tenga en cuenta que, despues
+        del cambio, la dirección antigua no funcionará más. No olvides informar
+        a los otros usuarios sobre la nueva dirección de tu cuenta.
+      </p>
+      <form [formGroup]="PreferencesForm" (ngSubmit)="Save()">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="preferences_title"
+                pInputText
+                name="preferences_title"
+                formControlName="preferences_title"
+              />
+              <label for="preferences_title">Título</label>
+            </span>
+            <div
+              *ngIf="
+                PreferencesForm.get('preferences_title')?.invalid &&
+                PreferencesForm.get('preferences_title')?.errors &&
+                (PreferencesForm.get('preferences_title')?.dirty ||
+                  PreferencesForm.get('preferences_title')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  PreferencesForm.get('preferences_title')?.hasError('required')
+                "
+              >
+                <p>Necesitas ingresar el titulo</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="inputtext"
+                pInputText
+                name="preferences_time_zone"
+                formControlName="preferences_time_zone"
+              />
+              <label for="preferences_time_zone">Huso horario</label>
+            </span>
+            <div
+              *ngIf="
+                PreferencesForm.get('preferences_time_zone')?.invalid &&
+                PreferencesForm.get('preferences_time_zone')?.errors &&
+                (PreferencesForm.get('preferences_time_zone')?.dirty ||
+                  PreferencesForm.get('preferences_time_zone')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  PreferencesForm.get('preferences_time_zone')?.hasError(
+                    'required'
+                  )
+                "
+              >
+                <p>Necesitas ingresar el huso horario</p>
+              </small>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="inputtext"
+                pInputText
+                name="preferences_date_format"
+                formControlName="preferences_date_format"
+              />
+              <label for="preferences_date_format">Formato de fecha</label>
+            </span>
+            <div
+              *ngIf="
+                PreferencesForm.get('preferences_date_format')?.invalid &&
+                PreferencesForm.get('preferences_date_format')?.errors &&
+                (PreferencesForm.get('preferences_date_format')?.dirty ||
+                  PreferencesForm.get('preferences_date_format')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  PreferencesForm.get('preferences_date_format')?.hasError(
+                    'required'
+                  )
+                "
+              >
+                <p>Necesitas ingresar el formato de la fecha</p>
+              </small>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="inputtext"
+                pInputText
+                name="preferences_time_format"
+                formControlName="preferences_time_format"
+              />
+              <label for="preferences_time_format">Formato de la hora</label>
+            </span>
+            <div
+              *ngIf="
+                PreferencesForm.get('preferences_time_format')?.invalid &&
+                PreferencesForm.get('preferences_time_format')?.errors &&
+                (PreferencesForm.get('preferences_time_format')?.dirty ||
+                  PreferencesForm.get('preferences_time_format')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  PreferencesForm.get('preferences_time_format')?.hasError(
+                    'required'
+                  )
+                "
+              >
+                <p>Necesitas ingresar el formato de la hora</p>
+              </small>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="inputtext"
+                pInputText
+                name="preferences_exchange_rate"
+                formControlName="preferences_exchange_rate"
+              />
+              <label for="preferences_exchange_rate">Tipo de cambio</label>
+            </span>
+            <div
+              *ngIf="
+                PreferencesForm.get('preferences_exchange_rate')?.invalid &&
+                PreferencesForm.get('preferences_exchange_rate')?.errors &&
+                (PreferencesForm.get('preferences_exchange_rate')?.dirty ||
+                  PreferencesForm.get('preferences_exchange_rate')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  PreferencesForm.get('preferences_exchange_rate')?.hasError(
+                    'required'
+                  )
+                "
+              >
+                <p>Necesitas ingresar el tipo de cambio</p>
+              </small>
+            </div>
+          </div>
+        </div>
+        <!--  <nz-divider></nz-divider> -->
+        <!-- <div class="p-fluid grid">
+          <div
+            *ngIf="!business_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button pButton pRipple type="submit" label="Almacenar"></button>
+            </div>
+          </div>
+          <div
+            *ngIf="business_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button pButton pRipple type="submit" label="Editar"></button>
+            </div>
+          </div>
+        </div> -->
+      </form>
+    </nz-card>
+  </div>
+</div>

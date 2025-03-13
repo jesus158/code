@@ -1,0 +1,19 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-6 lg:col-6 flex justify-content-start align-content-center flex-wrap"
+  >
+    <nz-page-header class="site-page-header" nzTitle="{{ name }}">
+    </nz-page-header>
+  </div>
+  <div
+    class="col-12 md:col-6 lg:col-6 flex justify-content-end align-content-center flex-wrap"
+  >
+    <button
+      (click)="onLeadsList()"
+      pButton
+      pRipple
+      label="LISTADO DE LEADS"
+    ></button>
+  </div>
+</div>
+<app-to-do></app-to-do>

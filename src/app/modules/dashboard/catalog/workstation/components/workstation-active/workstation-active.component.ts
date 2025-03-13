@@ -1,0 +1,103 @@
+import { Component } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import {
+  Message,
+  PrimeNGConfig,
+  ConfirmationService,
+  MessageService,
+  ConfirmEventType,
+} from 'primeng/api';
+import { Workstation } from '../../interfaces/workstation';
+import { WorkstationService } from '../../workstation.service';
+
+@Component({
+  selector: 'app-workstation-active',
+  templateUrl: './workstation-active.component.html',
+  styleUrls: ['./workstation-active.component.scss'],
+  providers: [ConfirmationService, MessageService],
+})
+export class WorkstationActiveComponent {
+  value2!: string;
+  name = 'Puestos de trabajo';
+  workstation!: Workstation[];
+  messages!: Message[];
+
+  WorkstationForm = this.fb.group({
+    workstation_is_delete: [false, [Validators.required]],
+  });
+
+  constructor(
+    private router: Router,
+    private primengConfig: PrimeNGConfig,
+    private workstationService: WorkstationService,
+    private fb: FormBuilder,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.getWorkstation();
+  }
+
+  async getWorkstation(): Promise<Workstation[]> {
+    const result = await this.workstationService.get_all_active_workstation();
+    this.workstation = result;
+    if (this.workstation.length <= 0) {
+      this.messages = [
+        {
+          severity: 'info',
+          summary: '',
+          detail: 'Actualmente no tienes puestos de trabajo creados.',
+        },
+      ];
+    }
+    return result;
+  }
+
+  async Delete(workstation: string): Promise<any> {
+    console.log(workstation);
+    this.WorkstationForm.patchValue({
+      workstation_is_delete: true,
+    });
+    await this.workstationService.update_workstation(
+      workstation,
+      this.WorkstationForm.value
+    );
+    this.getWorkstation();
+  }
+
+  public inputValidator(event: any) {
+    //console.log(event.target.value);
+    const pattern = /^[a-zA-Z0-9]*$/;
+    //let inputChar = String.fromCharCode(event.charCode)
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^a-zA-Z0-9]/g, '');
+      // invalid character, prevent input
+    }
+  }
+
+  async Search(event: any): Promise<any> {
+    if (event.target.value.length > 0) {
+      const result = await this.workstationService.get_all_active_workstation();
+      this.filterItems(result, event.target.value);
+    } else {
+      this.getWorkstation();
+    }
+  }
+
+  filterItems(arr: any[], query: string) {
+    this.workstation = arr.filter(
+      (workstation) =>
+        String(workstation.workstation_description)
+          .toLowerCase()
+          .indexOf(query.toLowerCase()) >= 0
+    );
+    return this.workstation;
+  }
+
+  onWorkstationEdit(id: string | null | undefined): void {
+    this.router.navigate([`dashboard/workstation-form/${id}`]);
+  }
+}

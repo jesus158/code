@@ -1,0 +1,29 @@
+img {
+  width: 70px !important;
+}
+
+.center {
+  text-align: center;
+  margin-top: 10px !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.logo-header {
+  margin-left: 20px !important;
+  width: 70px !important;
+}
+
+@media (max-width: 880px) {
+  .remove {
+    display: none;
+  }
+}
+
+@media (min-width: 880px) {
+  .not-remove {
+    display: none;
+  }
+}

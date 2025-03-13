@@ -1,0 +1,163 @@
+<nz-layout>
+  <div class="grid">
+    <div class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center">
+      <nz-card>
+        <div class="grid">
+          <div class="col-12 md:col-6 flex justify-content-start align-content-center flex-wrap">
+            <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Formulario" nzSubtitle="Negocios"/>
+          </div>
+        </div>
+        <form [formGroup]="BusinessForm" (ngSubmit)="Save()">
+          <div class="p-fluid grid">
+            <div class="field col-12 md:col-6">
+              <span class="p-float-label p-input-icon-left">
+                <i class="pi pi-building"></i>
+                <input
+                  type="text"
+                  id="business_name"
+                  pInputText
+                  name="business_name"
+                  formControlName="business_name"
+                />
+                <label for="business_name">Nombre de negocio</label>
+              </span>
+              <div
+                *ngIf="
+                  BusinessForm.get('business_name')?.invalid &&
+                  BusinessForm.get('business_name')?.errors &&
+                  (BusinessForm.get('business_name')?.dirty ||
+                    BusinessForm.get('business_name')?.touched)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="
+                    BusinessForm.get('business_name')?.hasError('required')
+                  "
+                >
+                  <p>Necesitas ingresar el nombre del negocio</p>
+                </small>
+              </div>
+            </div>
+            <div class="field col-12 md:col-6">
+              <span class="p-float-label p-input-icon-left">
+                <i class="pi pi-align-center"></i>
+                <input
+                  type="text"
+                  id="inputtext"
+                  pInputText
+                  name="business_description"
+                  formControlName="business_description"
+                />
+                <label for="business_description">Descripción</label>
+              </span>
+              <div
+                *ngIf="
+                  BusinessForm.get('business_description')?.invalid &&
+                  BusinessForm.get('business_description')?.errors &&
+                  (BusinessForm.get('business_description')?.dirty ||
+                    BusinessForm.get('business_description')?.touched)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="
+                    BusinessForm.get('business_description')?.hasError(
+                      'required'
+                    )
+                  "
+                >
+                  <p>Necesitas ingresar la descripción del negocio</p>
+                </small>
+              </div>
+            </div>
+            <div class="field col-12 md:col-12 lg:col-12">
+              <div class="grid flex justify-content-center">
+                <div
+                  class="field col-12 md:col-4 lg:col-4"
+                  *ngIf="business_uid"
+                >
+                  <img
+                    class="header-img"
+                    src="{{
+                      image_url
+                        ? image_url
+                        : '../../../../../../../../assets/blanco.jpg'
+                    }}"
+                    alt=""
+                  />
+                </div>
+                <div class="field col-12 md:col-8 lg:col-8">
+                  <p-toast></p-toast>
+                  <p>Adjuntar imagen de fondo</p>
+                  <p-fileUpload
+                    #form
+                    name="myfile[]"
+                    [customUpload]="true"
+                    (uploadHandler)="myUploader($event, form)"
+                    (onUpload)="onUpload($event)"
+                    [auto]="true"
+                    [multiple]="false"
+                    chooseLabel="Cargar imagen"
+                    accept="{{ acceptedFiles }}"
+                    invalidFileTypeMessageDetail="Sólo se permiten ficheros {{
+                      acceptedFiles
+                    }}"
+                    [maxFileSize]="1000000"
+                  >
+                    <ng-template pTemplate="content">
+                      <ul *ngIf="uploadedFiles">
+                        <li *ngFor="let file of uploadedFiles">
+                          {{ file.name }} - {{ file.size }} bytes
+                        </li>
+                      </ul>
+                    </ng-template>
+                  </p-fileUpload>
+                  <div
+                    *ngIf="
+                      BusinessForm.get('file')?.invalid &&
+                      BusinessForm.get('file')?.errors &&
+                      (BusinessForm.get('file')?.dirty ||
+                        BusinessForm.get('file')?.touched)
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="BusinessForm.get('file')?.hasError('required')"
+                    >
+                      <p>Necesitas ingresar una imagen de fondo</p>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nz-divider></nz-divider>
+          <div class="p-fluid grid">
+            <div
+              *ngIf="!business_uid"
+              class="col-12 md:col-12 flex justify-content-center"
+            >
+              <div class="field col-12 md:col-4">
+                <button
+                  pButton
+                  pRipple
+                  type="submit"
+                  label="Guardar"
+                ></button>
+              </div>
+            </div>
+            <div
+              *ngIf="business_uid"
+              class="col-12 md:col-12 flex justify-content-center"
+            >
+              <div class="field col-12 md:col-4">
+                <button pButton pRipple type="submit" label="Actualizar"></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </nz-card>
+    </div>
+  </div>
+</nz-layout>

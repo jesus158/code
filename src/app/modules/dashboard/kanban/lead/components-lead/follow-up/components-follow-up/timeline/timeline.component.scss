@@ -1,0 +1,45 @@
+nz-card {
+  border-radius: 20px !important;
+}
+
+.card-header {
+  list-style-type: none;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 500px !important;
+}
+
+.card-image {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 100% !important;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.card-header::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.card-header::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.card-header::-webkit-scrollbar-button:increment,
+.card-header::-webkit-scrollbar-button {
+  display: none;
+}
+
+.card-header::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.card-header::-webkit-scrollbar-thumb {
+  background-color: #254e89;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.card-header::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

@@ -1,0 +1,25 @@
+<nz-card class="card-header">
+  <div class="p-fluid grid">
+    <div class="col-12 md:col-12 lg:col-12">
+      Linea de tiempo
+      <br />
+      <nz-card *ngFor="let timeline of timeline">
+        <div class="grid">
+          <div class="col-12 md:col-12 lg:col-12">
+            {{ timeline.timelines_save_date | date : "dd/MM/yyyy h:mm" }}
+          </div>
+          <div class="col-12 md:col-12 lg:col-12">
+            {{ timeline.timelines_description }}
+          </div>
+        </div>
+      </nz-card>
+      <div class="col-12 md:col-12 lg:col-12">
+        <p-messages
+          [(value)]="messages"
+          [enableService]="false"
+          [closable]="false"
+        ></p-messages>
+      </div>
+    </div>
+  </div>
+</nz-card>

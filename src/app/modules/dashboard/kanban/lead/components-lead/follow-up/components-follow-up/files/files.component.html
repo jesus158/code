@@ -1,0 +1,33 @@
+<nz-card class="card-header">
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-6 lg:col-6 flex align-items-center">
+      Adjuntar Archivos
+    </div>
+    <div class="field col-12 md:col-6 lg:col-6 flex justify-content-end">
+      <button (click)="showDialog()" pButton pRipple icon="pi pi-plus"></button>
+    </div>
+  </div>
+  <div class="p-fluid grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngFor="let files of files">
+      <a href="{{files.files_url}}" target="_blank">
+        <nz-card
+        class="card-image"
+        [ngStyle]="{'background-image': files.files_type != 'image/jpeg' ? 'url(assets/back_file.png)' : 'url(' + files.files_url + ')'}"
+        [style.background-size]="'cover'"
+        [style.background-repeat]="'no-repeat'"
+        [style.background-position]="'center'"
+      >
+      </nz-card>
+      </a>
+    </div>
+    <div class="col-12 md:col-12 lg:col-12">
+      <p-messages
+        [(value)]="messages"
+        [enableService]="false"
+        [closable]="false"
+      ></p-messages>
+    </div>
+  </div>
+</nz-card>
+
+<app-files-modal (RealoadFiles)="getFollowUp()"></app-files-modal>

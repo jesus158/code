@@ -1,0 +1,164 @@
+<div cdkDropListGroup>
+  <div class="container-scroll">
+    <div class="example-container">
+      <h5>Nuevo</h5>
+      <div cdkDropList [cdkDropListData]="one" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of one" cdkDrag>
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+              {{ item }}
+            </div>
+            <nz-divider></nz-divider>
+            <div class="col-12">
+              <div class="grid">
+                <div class="col-6">
+                  <button pButton pRipple label="AÑADIR"></button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="bg-blue"
+                    pButton
+                    pRipple
+                    label="EDITAR"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h5>Prospectos contactados</h5>
+      <div
+        cdkDropList
+        [cdkDropListData]="two"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="example-box" *ngFor="let item of two" cdkDrag>
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+              {{ item }}
+            </div>
+            <nz-divider></nz-divider>
+            <div class="col-12">
+              <div class="grid">
+                <div class="col-6">
+                  <button pButton pRipple label="AÑADIR"></button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="bg-blue"
+                    pButton
+                    pRipple
+                    label="EDITAR"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h5>Proceso</h5>
+      <div
+        cdkDropList
+        [cdkDropListData]="three"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="example-box" *ngFor="let item of three" cdkDrag>
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+              {{ item }}
+            </div>
+            <nz-divider></nz-divider>
+            <div class="col-12">
+              <div class="grid">
+                <div class="col-6">
+                  <button pButton pRipple label="AÑADIR"></button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="bg-blue"
+                    pButton
+                    pRipple
+                    label="EDITAR"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h5>Propuesta</h5>
+      <div
+        cdkDropList
+        [cdkDropListData]="four"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="example-box" *ngFor="let item of four" cdkDrag>
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+              {{ item }}
+            </div>
+            <nz-divider></nz-divider>
+            <div class="col-12">
+              <div class="grid">
+                <div class="col-6">
+                  <button pButton pRipple label="AÑADIR"></button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="bg-blue"
+                    pButton
+                    pRipple
+                    label="EDITAR"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h5>Ganado</h5>
+      <div
+        cdkDropList
+        [cdkDropListData]="five"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="example-box" *ngFor="let item of five" cdkDrag>
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+              {{ item }}
+            </div>
+            <nz-divider></nz-divider>
+            <div class="col-12">
+              <div class="grid">
+                <div class="col-6">
+                  <button pButton pRipple label="AÑADIR"></button>
+                </div>
+                <div class="col-6">
+                  <button
+                    class="bg-blue"
+                    pButton
+                    pRipple
+                    label="EDITAR"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

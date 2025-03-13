@@ -1,0 +1,67 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-6 flex justify-content-start align-content-center flex-wrap"
+  >
+    <nz-page-header class="site-page-header" nzTitle="{{ name }}">
+    </nz-page-header>
+  </div>
+  <!-- <div class="col-12 md:col-6 flex justify-content-end align-content-center flex-wrap">
+      <nz-page-header
+      class="site-page-header"
+      (nzBack)="onBack()"
+      nzBackIcon
+      nzTitle="Go back"
+      nzSubtitle="Card">
+      </nz-page-header>
+    </div> -->
+</div>
+<div class="p-fluid grid">
+  <div class="field col-12 md:col-12 lg:col-12">
+    <div class="p-fluid grid flex justify-content-end">
+      <div class="field col-12 md:col-6 lg:col-6">
+        <button
+          (click)="onRolesForm()"
+          pButton
+          type="button"
+          label="Crear un rol nuevo"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid">
+  <nz-card
+    class="col-12 md:col-4 lg:col-3 text-center"
+    *ngFor="let rol of roles"
+  >
+    <div class="p-fluid grid">
+      <div class="col-6 md:col-6 lg:col-6 flex justify-content-start">
+        {{ rol.roles_save_date | date : "dd/MM/yyyy" }}
+      </div>
+      <div class="col-6 md:col-6 lg:col-6 flex justify-content-end">
+        <i class="pi pi-times" style="font-size: 1rem"></i>
+      </div>
+      <div class="col-12 md:col-12 lg:col-12">
+        <h3>{{ rol.roles_name }}</h3>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <button pButton type="button" label="Permisos"></button>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <button
+          (click)="onRolesEdit(rol.roles_uid)"
+          pButton
+          type="button"
+          label="Editar"
+        ></button>
+      </div>
+    </div>
+  </nz-card>
+  <div class="col-12 md:col-12 lg:col-12">
+    <p-messages
+      [(value)]="messages"
+      [enableService]="false"
+      [closable]="false"
+    ></p-messages>
+  </div>
+</div>

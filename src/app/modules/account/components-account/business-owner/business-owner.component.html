@@ -1,0 +1,211 @@
+<nz-card>
+  <div class="col-12 md:col-6 flex justify-content-start align-content-center flex-wrap">
+    <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Cuenta" />
+  </div>
+  <nz-divider></nz-divider>
+  <form [formGroup]="BusinessOwnerForm" (ngSubmit)="Update()">
+    <div class="p-fluid grid flex justify-content-center align-items-center">
+      <div class="field col-12 md:col-6 lg:col-6">
+        <span class="p-float-label p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="text"
+            id="business_owner_firts_name"
+            pInputText
+            name="business_owner_firts_name"
+            formControlName="business_owner_firts_name"
+          />
+          <label for="business_owner_firts_name">Nombres</label>
+        </span>
+        <div
+          *ngIf="
+            BusinessOwnerForm.get('business_owner_firts_name')?.invalid &&
+            BusinessOwnerForm.get('business_owner_firts_name')?.errors &&
+            (BusinessOwnerForm.get('business_owner_firts_name')?.dirty ||
+              BusinessOwnerForm.get('business_owner_firts_name')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              BusinessOwnerForm.get('business_owner_firts_name')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar al menos el primer nombre</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <span class="p-float-label p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="text"
+            id="business_owner_last_name"
+            pInputText
+            name="business_owner_last_name"
+            formControlName="business_owner_last_name"
+          />
+          <label for="business_owner_last_name">Apellidos</label>
+        </span>
+        <div
+          *ngIf="
+            BusinessOwnerForm.get('business_owner_last_name')?.invalid &&
+            BusinessOwnerForm.get('business_owner_last_name')?.errors &&
+            (BusinessOwnerForm.get('business_owner_last_name')?.dirty ||
+              BusinessOwnerForm.get('business_owner_last_name')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              BusinessOwnerForm.get('business_owner_last_name')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar tus apellidos</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <span class="p-float-label p-input-icon-left">
+          <i class="pi pi-flag"></i>
+          <input
+            type="text"
+            id="business_owner_country"
+            pInputText
+            name="business_owner_country"
+            formControlName="business_owner_country"
+          />
+          <label for="business_owner_country">País</label>
+        </span>
+        <div
+          *ngIf="
+            BusinessOwnerForm.get('business_owner_country')?.invalid &&
+            BusinessOwnerForm.get('business_owner_country')?.errors &&
+            (BusinessOwnerForm.get('business_owner_country')?.dirty ||
+              BusinessOwnerForm.get('business_owner_country')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              BusinessOwnerForm.get('business_owner_country')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar tu país</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <span class="p-float-label p-input-icon-left">
+          <i class="pi pi-envelope"></i>
+          <input
+            type="text"
+            id="business_owner_email"
+            pInputText
+            name="business_owner_email"
+            formControlName="business_owner_email"
+          />
+          <label for="business_owner_email">Correo</label>
+        </span>
+        <div
+          *ngIf="
+            BusinessOwnerForm.get('business_owner_email')?.invalid &&
+            BusinessOwnerForm.get('business_owner_email')?.errors &&
+            (BusinessOwnerForm.get('business_owner_email')?.dirty ||
+              BusinessOwnerForm.get('business_owner_email')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              BusinessOwnerForm.get('business_owner_email')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar tu correo</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <span class="p-float-label p-input-icon-left">
+          <i class="pi pi-phone"></i>
+          <input
+            type="number"
+            id="business_owner_number_phone"
+            pInputText
+            name="business_owner_number_phone"
+            formControlName="business_owner_number_phone"
+          />
+          <label for="business_owner_number_phone">Número de teléfono</label>
+        </span>
+        <div
+          *ngIf="
+            BusinessOwnerForm.get('business_owner_number_phone')?.invalid &&
+            BusinessOwnerForm.get('business_owner_number_phone')?.errors &&
+            (BusinessOwnerForm.get('business_owner_number_phone')?.dirty ||
+              BusinessOwnerForm.get('business_owner_number_phone')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              BusinessOwnerForm.get('business_owner_number_phone')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar tu número de teléfono</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6 lg:col-6">
+        <span class="p-float-label">
+          <p-calendar
+            formControlName="business_owner_birthday"
+            [touchUI]="true"
+          ></p-calendar>
+          <label for="business_owner_birthday">Fecha de nacimiento</label>
+        </span>
+        <div
+          *ngIf="
+            BusinessOwnerForm.get('business_owner_birthday')?.invalid &&
+            BusinessOwnerForm.get('business_owner_birthday')?.errors &&
+            (BusinessOwnerForm.get('business_owner_birthday')?.dirty ||
+              BusinessOwnerForm.get('business_owner_birthday')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              BusinessOwnerForm.get('business_owner_birthday')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar tu fecha de nacimiento</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid flex justify-content-center align-items-center">
+      <div class="col-12 md:col-6">
+        <div class="field col-12 md:col-12 lg:col-12">
+          <button
+            pButton
+            pRipple
+            type="submit"
+            label="Actualizar información"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</nz-card>

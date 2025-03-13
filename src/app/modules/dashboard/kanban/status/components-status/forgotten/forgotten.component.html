@@ -1,0 +1,24 @@
+<nz-card>
+  <p-table [value]="leads">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Celular</th>
+        <th>Correo</th>
+        <th>Último seguimiento</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lead>
+      <tr>
+        <td>{{lead.lead_code_generated}}</td>
+        <td>{{lead.lead_company}}</td>
+        <td>{{lead.lead_description ?? '---'}}</td>
+        <td>{{lead.lead_phone ?? '---'}}</td>
+        <td>{{lead.lead_email ?? '---'}}</td>
+        <td>{{lead.lead_update_date | date: 'dd-MM-yyyy'}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</nz-card>

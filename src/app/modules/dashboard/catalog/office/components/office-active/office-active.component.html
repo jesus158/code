@@ -1,0 +1,87 @@
+<nz-card>
+  <br />
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-6 lg:col-6">Oficinas Activas</div>
+    <div class="field col-12 md:col-6 lg:col-6">
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          (keyup)="Search($event)"
+        />
+        <label for="float-input">Buscar oficinas activas</label>
+      </span>
+    </div>
+  </div>
+  <p-table [value]="office">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>N° de oficinas</th>
+        <th>Nombre</th>
+        <th>Encargado</th>
+        <th>Ubicación</th>
+        <th>Observaciones</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-office>
+      <tr>
+        <td>{{ office.office_number }}</td>
+        <td>{{ office.office_name }}</td>
+        <td>{{ office.user?.user_name }}</td>
+        <td>{{ office.office_location }}</td>
+        <td>{{ office.office_observations }}</td>
+        <td>
+          <p-badge
+            nz-popconfirm
+            nzPopconfirmTitle="¿Deseas actualizar esta oficina?"
+            (nzOnConfirm)="onOfficeEdit(office.office_uid)"
+            value="Actualizar"
+            [style]="{ 'background-color': '#254E89' }"
+          ></p-badge>
+          <p-badge
+            nz-popconfirm
+            nzPopconfirmTitle="¿Deseas desactivar esta oficina?"
+            (nzOnConfirm)="Delete(office.office_uid)"
+            nzOkType="danger"
+            value="Desactivar"
+            [style]="{ 'background-color': '#892525' }"
+          ></p-badge>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div class="grid">
+    <div
+      class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+    >
+      <p-messages
+        [(value)]="messages"
+        [enableService]="false"
+        [closable]="false"
+      ></p-messages>
+    </div>
+  </div>
+</nz-card>
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <h3>¿Estás seguro que deseas desactivar la siguiente información?</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      label="No"
+      (click)="cd.reject()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      label="Sí"
+      (click)="cd.accept()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

@@ -1,0 +1,183 @@
+<p-dialog
+  header="Agregar"
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onHide()"
+>
+  <form [formGroup]="SalesbotForm" (ngSubmit)="Save()">
+    <br />
+    <div class="p-fluid grid flex justify-content-center">
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="salesbot_name"
+            pInputText
+            name="salesbot_name"
+            formControlName="salesbot_name"
+          />
+          <label for="salesbot_name">Nombre</label>
+        </span>
+        <div
+          *ngIf="
+            SalesbotForm.get('salesbot_name')?.invalid &&
+            SalesbotForm.get('salesbot_name')?.errors &&
+            (SalesbotForm.get('salesbot_name')?.dirty ||
+              SalesbotForm.get('salesbot_name')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="SalesbotForm.get('salesbot_name')?.hasError('required')"
+          >
+            <p>Necesitas ingresar el nombre</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="salesbot_triggers"
+            pInputText
+            name="salesbot_triggers"
+            formControlName="salesbot_triggers"
+          />
+          <label for="salesbot_triggers">Trigger</label>
+        </span>
+        <div
+          *ngIf="
+            SalesbotForm.get('salesbot_triggers')?.invalid &&
+            SalesbotForm.get('salesbot_triggers')?.errors &&
+            (SalesbotForm.get('salesbot_triggers')?.dirty ||
+              SalesbotForm.get('salesbot_triggers')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="SalesbotForm.get('salesbot_triggers')?.hasError('required')"
+          >
+            <p>Necesitas ingresar trigger</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="salesbot_conversion_rate"
+            pInputText
+            name="salesbot_conversion_rate"
+            formControlName="salesbot_conversion_rate"
+          />
+          <label for="salesbot_conversion_rate">Tasa de conversión</label>
+        </span>
+        <div
+          *ngIf="
+            SalesbotForm.get('salesbot_conversion_rate')?.invalid &&
+            SalesbotForm.get('salesbot_conversion_rate')?.errors &&
+            (SalesbotForm.get('salesbot_conversion_rate')?.dirty ||
+              SalesbotForm.get('salesbot_conversion_rate')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              SalesbotForm.get('salesbot_conversion_rate')?.hasError('required')
+            "
+          >
+            <p>Necesitas ingresar tasa de conversión</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="salesbot_full_release"
+            pInputText
+            name="salesbot_full_release"
+            formControlName="salesbot_full_release"
+          />
+          <label for="salesbot_full_release">Lanzamientos total</label>
+        </span>
+        <div
+          *ngIf="
+            SalesbotForm.get('salesbot_full_release')?.invalid &&
+            SalesbotForm.get('salesbot_full_release')?.errors &&
+            (SalesbotForm.get('salesbot_full_release')?.dirty ||
+              SalesbotForm.get('salesbot_full_release')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              SalesbotForm.get('salesbot_full_release')?.hasError('required')
+            "
+          >
+            <p>Necesitas ingresar los lanzamientos totales</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="salesbot_active_sessions"
+            pInputText
+            name="salesbot_active_sessions"
+            formControlName="salesbot_active_sessions"
+          />
+          <label for="salesbot_active_sessions">Sesiones activas</label>
+        </span>
+        <div
+          *ngIf="
+            SalesbotForm.get('salesbot_active_sessions')?.invalid &&
+            SalesbotForm.get('salesbot_active_sessions')?.errors &&
+            (SalesbotForm.get('salesbot_active_sessions')?.dirty ||
+              SalesbotForm.get('salesbot_active_sessions')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              SalesbotForm.get('salesbot_active_sessions')?.hasError('required')
+            "
+          >
+            <p>Necesitas ingresar las sesiones activas</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid">
+      <div
+        *ngIf="!salesbot_uid"
+        class="col-12 md:col-12 flex justify-content-center"
+      >
+        <div class="field col-12 md:col-4">
+          <button pButton pRipple type="submit" label="Agregar"></button>
+        </div>
+      </div>
+      <div *ngIf="salesbot_uid" class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button pButton pRipple type="submit" label="Editar"></button>
+          </div>
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button
+              class="p-button-dangr"
+              pButton
+              pRipple
+              type="submit"
+              label="Eliminar"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

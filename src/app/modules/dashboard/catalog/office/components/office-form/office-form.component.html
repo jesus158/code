@@ -1,0 +1,160 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center">
+    <nz-card>
+      <div class="grid">
+        <div class="col-6 md:col-6 lg:col-6 flex justify-content-start align-content-center flex-wrap">
+          <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Formulario" nzSubtitle="Oficinas" />
+        </div>
+      </div>
+      <form [formGroup]="OfficeForm" (ngSubmit)="Save()">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-hashtag"></i>
+              <input type="text" id="office_number" pInputText name="office_number" formControlName="office_number"/>
+              <label for="office_number">N° de oficina</label>
+            </span>
+            <div
+              *ngIf="
+                OfficeForm.get('office_number')?.invalid &&
+                OfficeForm.get('office_number')?.errors &&
+                (OfficeForm.get('office_number')?.dirty ||
+                  OfficeForm.get('office_number')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="OfficeForm.get('office_number')?.hasError('required')"
+              >
+                <p>Necesitas ingresar el número de la oficina</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-desktop"></i>
+              <input
+                type="text"
+                id="office_name"
+                pInputText
+                name="office_name"
+                formControlName="office_name"
+              />
+              <label for="office_name">Nombre de la oficina</label>
+            </span>
+            <div
+              *ngIf="
+                OfficeForm.get('office_name')?.invalid &&
+                OfficeForm.get('office_name')?.errors &&
+                (OfficeForm.get('office_name')?.dirty ||
+                  OfficeForm.get('office_name')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="OfficeForm.get('office_name')?.hasError('required')"
+              >
+                <p>Necesitas ingresar un nombre para la oficina</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-user"></i>
+              <p-dropdown [options]="users" [(ngModel)]="userModel" optionLabel="user_name" [showClear]="true" placeholder="Seleccionar encargado"  [ngModelOptions]="{standalone: true}"></p-dropdown>
+              <!-- <p-autoComplete [(ngModel)]="userModel" [suggestions]="filteredUsers" (completeMethod)="filterUser($event)" field="user_name" [ngModelOptions]="{standalone: true}"></p-autoComplete> -->
+              <!-- <input type="text" id="office_manager" pInputText name="office_manager" formControlName="office_manager"/> -->
+              <label for="office_manager">Encargado</label>
+            </span>
+            <div
+              *ngIf="
+                OfficeForm.get('userUserUid')?.invalid &&
+                OfficeForm.get('userUserUid')?.errors &&
+                (OfficeForm.get('userUserUid')?.dirty ||
+                  OfficeForm.get('userUserUid')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="OfficeForm.get('userUserUid')?.hasError('required')"
+              >
+                <p>Necesitas ingresar un encargado para la oficina</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-globe"></i>
+              <input
+                type="text"
+                id="office_location"
+                pInputText
+                name="office_location"
+                formControlName="office_location"
+              />
+              <label for="office_location">Dirección</label>
+            </span>
+            <div
+              *ngIf="
+                OfficeForm.get('office_location')?.invalid &&
+                OfficeForm.get('office_location')?.errors &&
+                (OfficeForm.get('office_location')?.dirty ||
+                  OfficeForm.get('office_location')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="OfficeForm.get('office_location')?.hasError('required')"
+              >
+                <p>Necesitas ingresar la dirección de la oficina</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-12">
+            <span class="p-float-label">
+              <textarea
+                id="float-input"
+                rows="5"
+                cols="30"
+                pInputTextarea
+                formControlName="office_observations"
+              ></textarea>
+              <label for="float-input">Observaciones</label>
+            </span>
+          </div>
+        </div>
+        <nz-divider></nz-divider>
+        <div class="p-fluid grid">
+          <div
+            *ngIf="!office_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button
+                class="btn-save"
+                pButton
+                pRipple
+                type="submit"
+                label="GUARDAR"
+              ></button>
+            </div>
+          </div>
+          <div
+            *ngIf="office_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button
+                class="btn-update"
+                pButton
+                pRipple
+                type="submit"
+                label="ACTUALIZAR"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

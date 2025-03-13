@@ -1,0 +1,13 @@
+<div class="p-fluid grid">
+  <ng-container *ngIf="!loading">
+    <div class="col-12 md:col-12 lg:col-12" *ngFor="let timeline of timelines">
+      <nz-card>
+        <p>{{timeline.timelines_description}}</p>
+        <small>{{timeline.timelines_save_date | date: "dd/MM/yyyy hh:mm a"}}</small>
+      </nz-card>
+    </div>
+    <div class="col-12 md:col-12 lg:col-12" *ngIf="timelines?.length == 0">
+      <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </div>
+  </ng-container>
+</div>

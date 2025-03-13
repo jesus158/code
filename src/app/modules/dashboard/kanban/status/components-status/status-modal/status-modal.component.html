@@ -1,0 +1,63 @@
+<p-dialog
+  header="Agregar Columna"
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onHide()"
+>
+  <form [formGroup]="StatusForm" (ngSubmit)="Save()">
+    <br />
+    <div class="p-fluid grid flex justify-content-center">
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="status_description"
+            pInputText
+            name="status_description"
+            formControlName="status_description"
+          />
+          <label for="status_description">Nombre de la columna</label>
+        </span>
+        <div
+          *ngIf="
+            StatusForm.get('status_description')?.invalid &&
+            StatusForm.get('status_description')?.errors &&
+            (StatusForm.get('status_description')?.dirty ||
+              StatusForm.get('status_description')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="StatusForm.get('status_description')?.hasError('required')"
+          >
+            <p>Necesitas ingresar descripcion</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid">
+      <div
+        *ngIf="!status_uid"
+        class="col-12 md:col-12 flex justify-content-center"
+      >
+        <div class="field col-12 md:col-4">
+          <button pButton pRipple type="submit" label="Agregar"></button>
+        </div>
+      </div>
+      <div *ngIf="status_uid" class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button pButton pRipple type="submit" label="Editar"></button>
+          </div>
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button class="p-button-dangr" pButton pRipple type="button" label="Eliminar" (click)="deleteStatus()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

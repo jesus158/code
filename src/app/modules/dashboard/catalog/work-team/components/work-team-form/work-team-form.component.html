@@ -1,0 +1,40 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <nz-card>
+      <div class="grid">
+        <div class="col-6 md:col-6 lg:col-6 flex justify-content-start align-content-center flex-wrap">
+          <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Formulario" nzSubtitle="Equipos de trabajo" />
+        </div>
+      </div>
+      <form [formGroup]="WorkTeamForm" (ngSubmit)="Save()">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-12">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-building"></i>
+              <input type="text" id="work_team_name" pInputText name="work_team_name" formControlName="work_team_name"/>
+              <label for="work_team_name">Nombre del equipo de trabajo</label>
+            </span>
+            <div *ngIf="WorkTeamForm.get('work_team_name')?.invalid && WorkTeamForm.get('work_team_name')?.errors && (WorkTeamForm.get('work_team_name')?.dirty || WorkTeamForm.get('work_team_name')?.touched)">
+              <small class="text-danger" *ngIf="WorkTeamForm.get('work_team_name')?.hasError('required')">
+                <p>Necesitas ingresar el nombre del equipo de trabajo</p>
+              </small>
+            </div>
+          </div>
+        </div>
+        <nz-divider></nz-divider>
+        <div class="p-fluid grid">
+          <div *ngIf="!work_team_uid" class="col-12 md:col-12 flex justify-content-center">
+            <div class="field col-12 md:col-4">
+              <button class="btn-save" pButton pRipple type="submit" label="GUARDAR"></button>
+            </div>
+          </div>
+          <div *ngIf="work_team_uid" class="col-12 md:col-12 flex justify-content-center">
+            <div class="field col-12 md:col-4">
+              <button class="btn-update" pButton pRipple type="submit" label="ACTUALIZAR"></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

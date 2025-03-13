@@ -1,0 +1,150 @@
+<p-dialog
+  header="Agregar"
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onHide()"
+>
+  <form [formGroup]="LeadsForm" (ngSubmit)="Save()">
+    <br />
+    <div class="p-fluid grid flex justify-content-center">
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="leads_company"
+            pInputText
+            name="leads_company"
+            formControlName="leads_company"
+          />
+          <label for="leads_company">Empresa/Contacto</label>
+        </span>
+        <div
+          *ngIf="
+            LeadsForm.get('leads_company')?.invalid &&
+            LeadsForm.get('leads_company')?.errors &&
+            (LeadsForm.get('leads_company')?.dirty ||
+              LeadsForm.get('leads_company')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="LeadsForm.get('leads_company')?.hasError('required')"
+          >
+            <p>Necesitas ingresar la empresa o contacto</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="leads_email"
+            pInputText
+            name="leads_email"
+            formControlName="leads_email"
+          />
+          <label for="leads_email">Correo</label>
+        </span>
+        <div
+          *ngIf="
+            LeadsForm.get('leads_email')?.invalid &&
+            LeadsForm.get('leads_email')?.errors &&
+            (LeadsForm.get('leads_email')?.dirty ||
+              LeadsForm.get('leads_email')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="LeadsForm.get('leads_email')?.hasError('required')"
+          >
+            <p>Necesitas ingresar el correo</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="leads_office_phone"
+            pInputText
+            name="leads_office_phone"
+            formControlName="leads_office_phone"
+          />
+          <label for="leads_office_phone">Celular</label>
+        </span>
+        <div
+          *ngIf="
+            LeadsForm.get('leads_office_phone')?.invalid &&
+            LeadsForm.get('leads_office_phone')?.errors &&
+            (LeadsForm.get('leads_office_phone')?.dirty ||
+              LeadsForm.get('leads_office_phone')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="LeadsForm.get('leads_office_phone')?.hasError('required')"
+          >
+            <p>Necesitas ingresar el número de celular</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="leads_expected_income"
+            pInputText
+            name="leads_expected_income"
+            formControlName="leads_expected_income"
+          />
+          <label for="leads_expected_income">Ingreso esperado</label>
+        </span>
+        <div
+          *ngIf="
+            LeadsForm.get('leads_expected_income')?.invalid &&
+            LeadsForm.get('leads_expected_income')?.errors &&
+            (LeadsForm.get('leads_expected_income')?.dirty ||
+              LeadsForm.get('leads_expected_income')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="LeadsForm.get('leads_expected_income')?.hasError('required')"
+          >
+            <p>Necesitas ingresar el ingreso esperado</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid">
+      <div
+        *ngIf="!leads_uid"
+        class="col-12 md:col-12 flex justify-content-center"
+      >
+        <div class="field col-12 md:col-4">
+          <button pButton pRipple type="submit" label="Agregar"></button>
+        </div>
+      </div>
+      <div *ngIf="leads_uid" class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button pButton pRipple type="submit" label="Editar"></button>
+          </div>
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button
+              class="p-button-dangr"
+              pButton
+              pRipple
+              type="submit"
+              label="Eliminar"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

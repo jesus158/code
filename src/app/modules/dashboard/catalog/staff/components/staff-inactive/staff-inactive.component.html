@@ -1,0 +1,84 @@
+<nz-card>
+  <br />
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-6 lg:col-6">Personal Inactivo</div>
+    <div class="field col-12 md:col-6 lg:col-6">
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          (keyup)="Search($event)"
+          (input)="inputValidator($event)"
+        />
+        <label for="float-input">Buscar personal inactivo</label>
+      </span>
+    </div>
+  </div>
+  <p-table [value]="staff">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Celular</th>
+        <th>Correo</th>
+        <th>Puesto de trabajo</th>
+        <th>Equipo de trabajo</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-staff>
+      <tr>
+        <td>{{ staff.staff_name }}</td>
+        <td>{{ staff.staff_last_name }}</td>
+        <td>{{ staff.staff_number_phone }}</td>
+        <td>{{ staff.staff_email }}</td>
+        <td>{{ staff.workstation?.workstation_description }}</td>
+        <td>{{ staff.work_team?.work_team_name }}</td>
+        <td>{{ staff.staff_age }}</td>
+        <td>
+          <p-badge
+            nz-popconfirm
+            nzPopconfirmTitle="¿Estás seguro que deseas activar este personal?"
+            (nzOnConfirm)="Active(staff.staff_uid)"
+            [value]="'Activar'"
+            [style]="{ 'background-color': '#22A055' }"
+          ></p-badge>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div class="grid">
+    <div
+      class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+    >
+      <p-messages
+        [(value)]="messages"
+        [enableService]="false"
+        [closable]="false"
+      ></p-messages>
+    </div>
+  </div>
+</nz-card>
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <h3>¿Estás seguro que deseas activar la siguiente información?</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      label="No"
+      (click)="cd.reject()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      label="Sí"
+      (click)="cd.accept()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

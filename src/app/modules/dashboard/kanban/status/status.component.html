@@ -1,0 +1,18 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-4 flex justify-content-center text-center">
+    <nz-card class="card-active-tabs" (click)="getKanban()">Kanban</nz-card>
+  </div>
+  <div class="col-12 md:col-12 lg:col-4 justify-content-center flex text-center">
+    <nz-card class="card-inactive-tabs" (click)="getTable()">Tabla</nz-card>
+  </div>
+  <div class="col-12 md:col-12 lg:col-4 flex justify-content-center text-center">
+    <nz-card class="card-active-tabs" (click)="getForgotten()">Olvidados</nz-card>
+  </div>
+</div>
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <router-outlet />
+  </div>
+</div>
+<!-- <app-status-modal (RealoadStatus)="getStatus()"></app-status-modal>
+<app-lead-modal (RealoadStatus)="getStatus()"></app-lead-modal> -->

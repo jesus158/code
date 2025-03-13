@@ -1,0 +1,23 @@
+<nz-layout>
+  <div class="grid">
+    <div class="col-12 md:col-4 lg:col-4">
+      <img class="logo" src="../../../assets/Prospecfy.png" alt="" />
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col-12 md:col-6 lg:col-6">
+      <app-stats-business [business]="business"></app-stats-business>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+      <app-stats-account [business_owner]="business_owner"></app-stats-account>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+      <app-stats-subscription
+        [subscription]="subscription"
+      ></app-stats-subscription>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+      <app-stats-user [user]="user"></app-stats-user>
+    </div>
+  </div>
+</nz-layout>

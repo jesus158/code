@@ -1,0 +1,144 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center">
+    <nz-card>
+      <div class="grid">
+        <div class="col-6 md:col-6 lg:col-6 flex justify-content-start align-content-center flex-wrap">
+          <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Formulario" nzSubtitle="Clientes"></nz-page-header>
+        </div>
+      </div>
+      <form [formGroup]="LeadsForm" (ngSubmit)="Save()">
+        <br />
+        <div class="p-fluid grid flex justify-content-center">
+          <div class="field col-12 md:col-12 lg:col-12">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="lead_company"
+                pInputText
+                name="lead_company"
+                formControlName="lead_company"
+              />
+              <label for="lead_company">Empresa/Contacto</label>
+            </span>
+            <div
+              *ngIf="
+                LeadsForm.get('lead_company')?.invalid &&
+                LeadsForm.get('lead_company')?.errors &&
+                (LeadsForm.get('lead_company')?.dirty ||
+                  LeadsForm.get('lead_company')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="LeadsForm.get('lead_company')?.hasError('required')"
+              >
+                <p>Necesitas ingresar la empresa o contacto</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-12 lg:col-12">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="lead_email"
+                pInputText
+                name="lead_email"
+                formControlName="lead_email"
+              />
+              <label for="lead_email">Correo</label>
+            </span>
+            <div
+              *ngIf="
+                LeadsForm.get('lead_email')?.invalid &&
+                LeadsForm.get('lead_email')?.errors &&
+                (LeadsForm.get('lead_email')?.dirty ||
+                  LeadsForm.get('lead_email')?.touched)
+              "
+            >
+              <small class="text-danger" *ngIf="LeadsForm.get('lead_email')?.hasError('required')">
+                <p>Necesitas ingresar el correo</p>
+              </small>
+              <small class="text-danger" *ngIf="LeadsForm.get('lead_email')?.hasError('email')">
+                <p>Correo inválido</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-12 lg:col-12">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="lead_phone"
+                pInputText
+                name="lead_phone"
+                formControlName="lead_phone"
+              />
+              <label for="lead_phone">Celular</label>
+            </span>
+            <div
+              *ngIf="
+                LeadsForm.get('lead_phone')?.invalid &&
+                LeadsForm.get('lead_phone')?.errors &&
+                (LeadsForm.get('lead_phone')?.dirty ||
+                  LeadsForm.get('lead_phone')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="LeadsForm.get('lead_phone')?.hasError('required')"
+              >
+                <p>Necesitas ingresar el número de celular</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-12 lg:col-12">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="lead_expected_income"
+                pInputText
+                name="lead_expected_income"
+                formControlName="lead_expected_income"
+              />
+              <label for="lead_expected_income">Ingreso esperado</label>
+            </span>
+            <div
+              *ngIf="
+                LeadsForm.get('lead_expected_income')?.invalid &&
+                LeadsForm.get('lead_expected_income')?.errors &&
+                (LeadsForm.get('lead_expected_income')?.dirty ||
+                  LeadsForm.get('lead_expected_income')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  LeadsForm.get('lead_expected_income')?.hasError('required')
+                "
+              >
+                <p>Necesitas ingresar el ingreso esperado</p>
+              </small>
+            </div>
+          </div>
+        </div>
+        <nz-divider></nz-divider>
+        <div class="p-fluid grid">
+          <div
+            *ngIf="!customer_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button pButton pRipple type="submit" label="Agregar"></button>
+            </div>
+          </div>
+          <div *ngIf="customer_uid" class="col-12 md:col-12 lg:col-12">
+            <div class="grid flex justify-content-center">
+              <div class="field col-6 md:col-6 lg:col-6">
+                <button pButton pRipple type="submit" label="Editar"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-6 lg:col-6 bg-div flex justify-content-center align-items-center"
+  >
+    <div class="text-center">
+      <img
+        width="100%"
+        height="100%"
+        src="../../../../assets/leadership.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <div
+    class="col-12 md:col-6 lg:col-6 flex justify-content-center align-items-center"
+  >
+    <form [formGroup]="AuthForm" (ngSubmit)="auth()">
+      <div class="p-fluid grid flex justify-content-center align-items-center">
+        <div class="field col-12 md:col-12 lg:col-12">
+          <div class="text-center">
+            <img src="../../../../assets/Prospecfy.png" width="200" alt="" />
+            <h2>Bienvenido de nuevo, ¿cómo estás hoy?</h2>
+            <p>
+              Para iniciar sesión debe completar los siguientes campos de texto.
+            </p>
+          </div>
+        </div>
+        <div class="field col-12 md:col-10 lg:col-8">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input
+              type="text"
+              id="username_or_email"
+              pInputText
+              name="username_or_email"
+              formControlName="username_or_email"
+            />
+            <label for="username_or_email"
+              >Nombre de usuario/Correo eléctronico</label
+            >
+          </span>
+          <div
+            *ngIf="
+              AuthForm.get('username_or_email')?.invalid &&
+              AuthForm.get('username_or_email')?.errors &&
+              (AuthForm.get('username_or_email')?.dirty ||
+                AuthForm.get('username_or_email')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="AuthForm.get('username_or_email')?.hasError('required')"
+            >
+              <p>
+                Necesitas ingresar tu nombre de usuario o correo eléctronico
+              </p>
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="AuthForm.get('username_or_email')?.hasError('email')"
+            >
+              <p>Ingresa un correo válido</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-10 lg:col-8">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input
+              type="password"
+              id="access_password"
+              pInputText
+              name="access_password"
+              formControlName="access_password"
+            />
+            <label for="access_password">Contraseña</label>
+          </span>
+          <div
+            *ngIf="
+              AuthForm.get('access_password')?.invalid &&
+              AuthForm.get('access_password')?.errors &&
+              (AuthForm.get('access_password')?.dirty ||
+                AuthForm.get('access_password')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="AuthForm.get('access_password')?.hasError('required')"
+            >
+              <p>Necesitas ingresar tu contraseña</p>
+            </small>
+          </div>
+        </div>
+        <!-- <div class="field-checkbox col-12 md:col-6">
+            <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
+            <label for="binary">Remember me</label>
+          </div> -->
+      </div>
+      <nz-divider></nz-divider>
+      <div class="p-fluid grid flex justify-content-center align-items-center">
+        <div class="col-12 md:col-6">
+          <div class="col-12 md:col-12 lg:col-12">
+            <a (click)="resetPassword()"> Has olvidado tu contraseña? </a>
+          </div>
+          <div class="col-12 md:col-6">
+            <a (click)="register()"> Registrate aquí </a>
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="field col-12 md:col-12 lg:col-12">
+            <button
+              pButton
+              pRipple
+              type="submit"
+              label="Iniciar sesión"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

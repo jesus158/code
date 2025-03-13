@@ -1,0 +1,42 @@
+[
+    {
+      "social_networks_name": "Facebook",
+      "social_networks_image":
+        "../../../../../assets/social_networks/facebook.png",
+      "background_color": "#DEDDFF",
+      "button_color": "#C1C1FF",
+      "icon_color": "#4D49FF"
+    },
+    {
+      "social_networks_name": "WhatsApp",
+      "social_networks_image":
+        "../../../../../assets/social_networks/whatsapp.png",
+      "background_color": "#D8FFD9",
+      "button_color": "#AEFFB3",
+      "icon_color": "#3EFF49"
+    },
+    {
+      "social_networks_name": "Instagram",
+      "social_networks_image":
+        "../../../../../assets/social_networks/instagram.png",
+      "background_color": "#FFE1EE",
+      "button_color": "#FFBCD9",
+      "icon_color": "#FF4D9A"
+    },
+    {
+      "social_networks_name": "Telegram",
+      "social_networks_image":
+        "../../../../../assets/social_networks/telegram.png",
+      "background_color": "#E4FDFF",
+      "button_color": "#B1F9FF",
+      "icon_color": "#3DF0FF"
+    },
+    {
+      "social_networks_name": "Linkedin",
+      "social_networks_image":
+        "../../../../../assets/social_networks/linkedin.png",
+      "background_color": "#E4FDFF",
+      "button_color": "#B1F9FF",
+      "icon_color": "#3DF0FF"
+    }
+  ]

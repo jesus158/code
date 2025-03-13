@@ -1,0 +1,21 @@
+nz-card {
+  width: 100% !important;
+  border-radius: 20px !important;
+}
+
+.p-button {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+.p-buttonset .p-button:last-of-type {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+.p-buttonset .p-button:first-of-type {
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}

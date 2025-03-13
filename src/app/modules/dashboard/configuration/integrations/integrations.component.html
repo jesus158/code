@@ -1,0 +1,112 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <nz-card class="nz-card-header">
+      <p-badge
+        [value]="'TODO'"
+        [style]="{ 'background-color': '#514EFF' }"
+      ></p-badge>
+      <!-- <p-badge
+        [value]="'BANDEJA DE ENTRADA'"
+        [style]="{ 'background-color': '#514EFF' }"
+      ></p-badge>
+      <p-badge
+        [value]="'AUTOMATIZACIONES'"
+        [style]="{ 'background-color': '#514EFF' }"
+      ></p-badge>
+      <p-badge
+        [value]="'FUENTES DE LEADS'"
+        [style]="{ 'background-color': '#514EFF' }"
+      ></p-badge> -->
+      <p-badge
+        [value]="'INSTALADO'"
+        [style]="{ 'background-color': '#D8FFD9', color: '#3EFF49' }"
+      ></p-badge>
+    </nz-card>
+  </div>
+</div>
+<div class="grid" *ngFor="let category of integrations">
+  <div class="col-12 md:col-12 lg:col-12">
+    <nz-divider
+      nzText="{{ category.category_name }}"
+      nzOrientation="left"
+    ></nz-divider>
+  </div>
+  <div
+    class="col-12 md:col-3 lg:col-3"
+    *ngFor="let integration of category?.integrations"
+  >
+    <nz-card
+      class="flex justify-content-center"
+      [style.background-color]="'' + integration.background_color + ''"
+    >
+      <div class="grid">
+        <div class="col-12 md:col-12 lg:col-12 flex justify-content-center">
+          <p-avatar
+            image="{{ integration.integrations_image }}"
+            class="avatar"
+            styleClass="mr-2"
+            size="xlarge"
+            shape="circle"
+          ></p-avatar>
+        </div>
+        <div
+          class="col-12 md:col-6 lg:col-6 flex align-items-center justify-content-center"
+        >
+          <h4 [style]="{ color: '#4D49FF', 'font-weight': 'bold' }">
+            {{ integration.integrations_name }}
+          </h4>
+        </div>
+        <div
+          class="col-12 md:col-6 lg:col-6 flex align-items-center justify-content-end"
+        >
+          <nz-card
+            *ngIf="integration.is_instaled === false"
+            (click)="Update(integration.integrations_uid)"
+            [style.background-color]="'' + integration.button_color + ''"
+            [style]="{ 'background-color': '#C1C1FF' }"
+            class="button-rounded flex align-items-center justify-content-center"
+          >
+            <i
+              class="pi pi-plus"
+              [style.color]="'' + integration.icon_color + ''"
+              [style]="{ 'font-weight': 'bold' }"
+            ></i
+          ></nz-card>
+          <nz-card
+            *ngIf="integration.is_instaled === true"
+            [style.background-color]="'' + integration.button_color + ''"
+            [style]="{ 'background-color': '#C1C1FF' }"
+            class="button-rounded flex align-items-center justify-content-center"
+          >
+            <i
+              class="pi pi-check"
+              [style.color]="'' + integration.icon_color + ''"
+              [style]="{ 'font-weight': 'bold' }"
+            ></i
+          ></nz-card>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <h3>¿Estás seguro que deseas instalar la siguiente integración?</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      label="No"
+      (click)="cd.reject()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      label="Sí"
+      (click)="cd.accept()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

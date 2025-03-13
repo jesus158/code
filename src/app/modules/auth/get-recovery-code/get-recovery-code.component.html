@@ -1,0 +1,68 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-6 lg:col-6 bg-div flex justify-content-center align-items-center"
+  >
+    <div class="text-center">
+      <img
+        width="100%"
+        height="100%"
+        src="../../../../assets/Reset password.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <div
+    class="col-12 md:col-6 lg:col-6 flex justify-content-center align-items-center"
+  >
+    <form [formGroup]="RecoveryForm" (ngSubmit)="Recovery_Password()">
+      <div class="p-fluid grid">
+        <div class="field col-12 md:col-10">
+          <div class="text-center">
+            <p>Ingresa el código que se envió a tu correo</p>
+          </div>
+        </div>
+        <div class="field col-12 md:col-10">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input
+              type="text"
+              id="access_recovery"
+              pInputText
+              name="access_recovery"
+              formControlName="access_recovery"
+            />
+            <label for="access_recovery">Código de recuperación</label>
+          </span>
+          <div
+            *ngIf="
+              RecoveryForm.get('access_recovery')?.invalid &&
+              RecoveryForm.get('access_recovery')?.errors &&
+              (RecoveryForm.get('access_recovery')?.dirty ||
+                RecoveryForm.get('access_recovery')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="RecoveryForm.get('access_recovery')?.hasError('required')"
+            >
+              <p>Necesitas ingresar el código de recuperación</p>
+            </small>
+          </div>
+        </div>
+      </div>
+      <nz-divider></nz-divider>
+      <div class="p-fluid grid flex justify-content-center">
+        <div class="col-12 md:col-8">
+          <div class="field col-12 md:col-12">
+            <button
+              pButton
+              pRipple
+              type="submit"
+              label="Comprobar código de recuperación"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+nz-layout {
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  overflow: hidden;
+  background: transparent !important;
+  padding: 25px !important;
+}
+
+nz-card {
+  width: 100% !important;
+  border-radius: 20px !important;
+}
+
+.header-img {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 100% !important;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+}
+
+img {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}

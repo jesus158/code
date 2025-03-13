@@ -1,0 +1,73 @@
+<p-dialog
+  header="Agregar Columna"
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onHide()"
+>
+  <form [formGroup]="KanbanStatusForm" (ngSubmit)="Save()">
+    <br />
+    <div class="p-fluid grid flex justify-content-center">
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="kanban_status_description"
+            pInputText
+            name="kanban_status_description"
+            formControlName="kanban_status_description"
+          />
+          <label for="kanban_status_description">Nombre de la columna</label>
+        </span>
+        <div
+          *ngIf="
+            KanbanStatusForm.get('kanban_status_description')?.invalid &&
+            KanbanStatusForm.get('kanban_status_description')?.errors &&
+            (KanbanStatusForm.get('kanban_status_description')?.dirty ||
+              KanbanStatusForm.get('kanban_status_description')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              KanbanStatusForm.get('kanban_status_description')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar descripcion</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid">
+      <div
+        *ngIf="!kanban_status_uid"
+        class="col-12 md:col-12 flex justify-content-center"
+      >
+        <div class="field col-12 md:col-4">
+          <button pButton pRipple type="submit" label="Agregar"></button>
+        </div>
+      </div>
+      <div *ngIf="kanban_status_uid" class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button pButton pRipple type="submit" label="Editar"></button>
+          </div>
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button
+              class="p-button-dangr"
+              pButton
+              pRipple
+              type="submit"
+              label="Eliminar"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

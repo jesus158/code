@@ -1,0 +1,155 @@
+<div class="box-shadow">
+  <div class="circle" (click)="isCollapsed = !isCollapsed">
+    <span>
+      <span nz-icon [nzType]="isCollapsed ? 'right' : 'left'"></span>
+    </span>
+  </div>
+</div>
+<div class="sidebar-logo">
+  <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+  <h1>PROSPECFY</h1>
+</div>
+<ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Tablero Leads' : ''"
+    routerLink="'statistics'"
+  >
+    <span nz-icon nzType="desktop" style="color: #737373"></span>
+    <span>Tablero Leads</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Tablero clientes' : ''"
+    routerLink="'statistics'"
+  >
+    <span nz-icon nzType="usergroup-add" style="color: #737373"></span>
+    <span>Tablero Clientes</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Leads' : ''"
+    routerLink="'leads'"
+  >
+    <span nz-icon nzType="team" style="color: #737373"></span>
+    <span>Leads</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Chats' : ''"
+    routerLink="'chats'"
+  >
+    <span nz-icon nzType="message" style="color: #737373"></span>
+    <span>Chats</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'WhatsApp' : ''"
+    routerLink="'whatsapp'"
+  >
+    <span nz-icon nzType="whats-app" style="color: #737373"></span>
+    <span>WhatsApp</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Facebook' : ''"
+    routerLink="'facebook'"
+  >
+    <span nz-icon nzType="facebook" style="color: #737373"></span>
+    <span>Facebook</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Instagram' : ''"
+    routerLink="'instagram'"
+  >
+    <span nz-icon nzType="instagram" style="color: #737373"></span>
+    <span>Instagram</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Seguimiento' : ''"
+    routerLink="'configuration'"
+  >
+    <span nz-icon nzType="file-done" style="color: #737373"></span>
+    <span>Seguimiento</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Clientes' : ''"
+    routerLink="'configuration'"
+  >
+    <span nz-icon nzType="user-add" style="color: #737373"></span>
+    <span>Clientes</span>
+  </li>
+  <li nz-submenu nzTitle="Reportes" nzIcon="file-pdf" style="color: #737373">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a>Vendedor</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Conversión</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Ventas</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Sucursal</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-submenu nzTitle="Catalogos" nzIcon="file-text" style="color: #737373">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a>Personal</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Oficinas</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Puestos de trabajo</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Equipos de trabajo</a>
+      </li>
+    </ul>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'Proceso Especial' : ''"
+    routerLink="'configuration'"
+  >
+    <span nz-icon nzType="fund-projection-screen" style="color: #737373"></span>
+    <span>Proceso Especial</span>
+  </li>
+  <li
+    nz-menu-item
+    nz-tooltip
+    nzTooltipPlacement="right"
+    [nzTooltipTitle]="isCollapsed ? 'configuration' : ''"
+    routerLink="'configuration'"
+  >
+    <span nz-icon nzType="setting" style="color: #737373"></span>
+    <span>Configuración</span>
+  </li>
+</ul>

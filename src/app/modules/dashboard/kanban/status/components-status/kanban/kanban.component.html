@@ -1,0 +1,22 @@
+<div cdkDropListGroup>
+  <div class="container-scroll">
+    <div class="example-container" *ngFor="let status of status; let i = index">
+      <nz-card (click)="showDialogUpdate(status.status_uid)" class="card-header flex justify-content-center align-items-center align-content-center text-center">
+        <h4>{{ status.status_description }}</h4>
+      </nz-card>
+      <div  *ngIf="i === 0" class="m-2 w-50">
+        <button (click)="showDialogLeads(status.status_uid)" pButton pRipple type="submit" label="Agregar" class="w-full border-round-lg"></button>
+      </div>
+      <div *ngIf="i != 0" class="m-2 w-50 h-3rem">&nbsp;</div>
+      <app-lead [status_uid]="status.status_uid" [lead]="status.lead" (refresh)="getStatus()" />
+    </div>
+    <div class="example-container-card">
+      <nz-card (click)="showDialog()" class="card-new flex justify-content-center align-items-center align-content-center text-center">
+        <i class="pi pi-plus" style="font-size: 1rem"></i>
+      </nz-card>
+      <br />
+    </div>
+  </div>
+</div>
+<app-status-modal (RealoadStatus)="getStatus()"></app-status-modal>
+<app-lead-modal (RealoadStatus)="getStatus()"></app-lead-modal>

@@ -1,0 +1,104 @@
+<p-dialog
+  header="Agregar"
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onHide()"
+>
+  <form [formGroup]="ResponseForm" (ngSubmit)="Save()">
+    <br />
+    <div class="p-fluid grid flex justify-content-center">
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="response_template_name"
+            pInputText
+            name="response_template_name"
+            formControlName="response_template_name"
+          />
+          <label for="response_template_name">Nombre</label>
+        </span>
+        <div
+          *ngIf="
+            ResponseForm.get('response_template_name')?.invalid &&
+            ResponseForm.get('response_template_name')?.errors &&
+            (ResponseForm.get('response_template_name')?.dirty ||
+              ResponseForm.get('response_template_name')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              ResponseForm.get('response_template_name')?.hasError('required')
+            "
+          >
+            <p>Necesitas ingresar el nombre</p>
+          </small>
+        </div>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="response_template_response_text"
+            pInputText
+            name="response_template_response_text"
+            formControlName="response_template_response_text"
+          />
+          <label for="response_template_response_text"
+            >Texto de respuesta</label
+          >
+        </span>
+        <div
+          *ngIf="
+            ResponseForm.get('response_template_response_text')?.invalid &&
+            ResponseForm.get('response_template_response_text')?.errors &&
+            (ResponseForm.get('response_template_response_text')?.dirty ||
+              ResponseForm.get('response_template_response_text')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="
+              ResponseForm.get('response_template_response_text')?.hasError(
+                'required'
+              )
+            "
+          >
+            <p>Necesitas ingresar el texto de respuesta</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid">
+      <div
+        *ngIf="!response_template_uid"
+        class="col-12 md:col-12 flex justify-content-center"
+      >
+        <div class="field col-12 md:col-4">
+          <button pButton pRipple type="submit" label="Agregar"></button>
+        </div>
+      </div>
+      <div *ngIf="response_template_uid" class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button pButton pRipple type="submit" label="Editar"></button>
+          </div>
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button
+              class="p-button-dangr"
+              pButton
+              pRipple
+              type="submit"
+              label="Eliminar"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

@@ -1,0 +1,82 @@
+nz-layout {
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  background: transparent !important;
+  padding: 20px !important;
+}
+
+img {
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+  border-radius: 20px !important;
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.logo {
+  box-shadow: none !important;
+  border-radius: none !important;
+  width: 150px !important;
+  height: 50px !important;
+}
+
+nz-card {
+  border-radius: 20px !important;
+}
+
+.card-business {
+  list-style-type: none;
+  overflow-y: auto;
+  white-space: nowrap;
+  border-radius: 20px !important;
+  height: 130px !important;
+}
+
+.card-business-content {
+  margin: 10px !important;
+}
+
+.card-business-new {
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 100% !important;
+  padding-top: 4px !important;
+  color: #ffffff !important;
+  background-color: #22a055 !important;
+  cursor: pointer;
+}
+
+.header-img {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 100% !important;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.card-business::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.card-business::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.card-business::-webkit-scrollbar-button:increment,
+.card-business::-webkit-scrollbar-button {
+  display: none;
+}
+
+.card-business::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.card-business::-webkit-scrollbar-thumb {
+  background-color: #254e89;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.card-business::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

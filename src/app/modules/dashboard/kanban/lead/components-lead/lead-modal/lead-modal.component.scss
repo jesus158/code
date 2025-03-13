@@ -1,0 +1,13 @@
+.p-button-dangr {
+  background: #892525 !important;
+  border: #892525 !important;
+  border-radius: 20px !important;
+}
+
+::ng-deep p-dialog .p-dialog .p-dialog-content {
+  overflow: hidden !important;
+}
+
+::ng-deep p-dialog .p-dialog {
+  max-height: 100% !important;
+}

@@ -1,0 +1,35 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-6 flex justify-content-start align-content-center flex-wrap"
+  >
+    <nz-page-header class="site-page-header" nzTitle="{{ name }}">
+    </nz-page-header>
+  </div>
+  <!-- <div class="col-12 md:col-6 flex justify-content-end align-content-center flex-wrap">
+      <nz-page-header
+      class="site-page-header"
+      (nzBack)="onBack()"
+      nzBackIcon
+      nzTitle="Go back"
+      nzSubtitle="Card">
+      </nz-page-header>
+    </div> -->
+</div>
+<div class="grid">
+  <div
+    class="col-12 md:col-12 lg:col-6 flex justify-content-center text-center"
+  >
+    <div class="grid"></div>
+    <nz-card class="card" (click)="onAssigned()"> Asignados </nz-card>
+  </div>
+  <div
+    class="col-12 md:col-12 lg:col-6 justify-content-center flex text-center"
+  >
+    <nz-card class="card" (click)="onNoAssigned()"> Sin asignar</nz-card>
+  </div>
+</div>
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>

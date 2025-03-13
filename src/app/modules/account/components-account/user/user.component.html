@@ -1,0 +1,27 @@
+<nz-layout>
+  <div class="grid">
+    <div class="col-12 md:col-6 flex justify-content-start align-content-center flex-wrap">
+      <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="{{ name }}" />
+    </div>
+  </div>
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-12 lg:col-12">
+      <div class="p-fluid grid flex justify-content-end">
+        <div class="field col-12 md:col-6 lg:col-6">
+          <button
+            (click)="onUserForm()"
+            pButton
+            type="button"
+            label="Crear nuevo usuarios"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <div class="grid">
+    <div class="col-12 md:col-12 lg:col-12">
+      <app-user-table></app-user-table>
+    </div>
+  </div>
+</nz-layout>

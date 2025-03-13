@@ -1,0 +1,99 @@
+<div class="grid not-remove">
+  <div class="col-6 not-remove">
+    <img src="../../../../../assets/Prospecfy.png" alt="" />
+  </div>
+  <div class="col-6 flex align-items-center justify-content-end not-remove">
+    <i
+      (click)="showPositionDialog('top-right')"
+      class="pi pi-comments mr-3 p-text-secondary"
+      pBadge
+      style="font-size: 1.5rem"
+      value="10"
+    ></i>
+    <i
+      (click)="showPositionDialog('top-right')"
+      class="pi pi-bell mr-3 p-text-secondary"
+      pBadge
+      style="font-size: 1.5rem"
+      value="10"
+    ></i>
+    <i
+      (click)="showPositionDialog('top-right')"
+      class="pi pi-cog mr-3 p-text-secondary"
+      style="font-size: 1.5rem"
+    ></i>
+  </div>
+</div>
+<div class="grid remove">
+  <div class="col-12 md:col-6 remove">
+    <img src="../../../assets/images/LOGO.png" alt="" />
+  </div>
+  <div
+    class="col-12 md:col-6 flex align-items-center justify-content-end remove"
+  >
+    <i
+      (click)="showPositionDialog('top-right')"
+      class="pi pi-comments mr-3 p-text-secondary"
+      pBadge
+      style="font-size: 1.5rem"
+      value="10"
+    ></i>
+    <i
+      (click)="showPositionDialog('top-right')"
+      class="pi pi-bell mr-3 p-text-secondary"
+      pBadge
+      style="font-size: 1.5rem"
+      value="10"
+    ></i>
+    <i
+      (click)="showPositionDialog('top-right')"
+      class="pi pi-cog mr-3 p-text-secondary"
+      style="font-size: 1.5rem"
+    ></i>
+  </div>
+</div>
+<p-dialog
+  header="Options"
+  [(visible)]="displayPosition"
+  [position]="'topright'"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [modal]="false"
+  [style]="{ width: '30vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="grid">
+    <div
+      class="col-12 md:col-12 flex justify-content-center align-content-center flex-wrap"
+    >
+      <img
+        class="img-header-modal"
+        src="../../../../../assets/Prospecfy.png"
+        alt="logo"
+      />
+    </div>
+    <nz-divider></nz-divider>
+    <div
+      class="col-12 md:col-12 flex justify-content-center align-content-center flex-wrap"
+    >
+      <a href="">
+        <i nz-icon nzType="setting"></i>
+        <span> Settings </span>
+      </a>
+      <a href="">
+        <nz-divider nzType="vertical"></nz-divider>
+        <i nz-icon nzType="edit"></i>
+        <span> Edit profile </span>
+      </a>
+      <a href="">
+        <nz-divider nzType="vertical"></nz-divider>
+        <i nz-icon nzType="logout"></i>
+        <span> Log out </span>
+      </a>
+    </div>
+  </div>
+
+  <!--  <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template> -->
+</p-dialog>

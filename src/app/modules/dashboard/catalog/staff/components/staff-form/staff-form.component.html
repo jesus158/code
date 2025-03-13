@@ -1,0 +1,250 @@
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center">
+    <nz-card>
+      <div class="grid">
+        <div class="col-6 md:col-6 lg:col-6 flex justify-content-start align-content-center flex-wrap">
+          <nz-page-header (nzBack)="onBack()" nzBackIcon class="site-page-header" nzTitle="Formulario" nzSubtitle="Personal" />
+        </div>
+      </div>
+      <form [formGroup]="StaffForm" (ngSubmit)="Save()">
+        <div class="p-fluid grid justify-content-center">
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-user"></i>
+              <input
+                type="text"
+                id="staff_name"
+                pInputText
+                name="staff_name"
+                formControlName="staff_name"
+              />
+              <label for="staff_name">Nombres</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('staff_name')?.invalid &&
+                StaffForm.get('staff_name')?.errors &&
+                (StaffForm.get('staff_name')?.dirty ||
+                  StaffForm.get('staff_name')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="StaffForm.get('staff_name')?.hasError('required')"
+              >
+                <p>Necesitas ingresar al menos el primer nombre</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-user"></i>
+              <input
+                type="text"
+                id="staff_last_name"
+                pInputText
+                name="staff_last_name"
+                formControlName="staff_last_name"
+              />
+              <label for="staff_last_name">Apellidos</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('staff_last_name')?.invalid &&
+                StaffForm.get('staff_last_name')?.errors &&
+                (StaffForm.get('staff_last_name')?.dirty ||
+                  StaffForm.get('staff_last_name')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="StaffForm.get('staff_last_name')?.hasError('required')"
+              >
+                <p>Necesitas ingresar al menos el primer apellido</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label">
+              <p-calendar
+                id="staff_birthday"
+                name="staff_birthday"
+                formControlName="staff_birthday"
+              ></p-calendar>
+              <label for="staff_birthday">Fecha de nacimiento</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('staff_birthday')?.invalid &&
+                StaffForm.get('staff_birthday')?.errors &&
+                (StaffForm.get('staff_birthday')?.dirty ||
+                  StaffForm.get('staff_birthday')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="StaffForm.get('staff_birthday')?.hasError('required')"
+              >
+                <p>Necesitas ingresar la fecha de nacimiento</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-calendar"></i>
+              <input type="number" id="staff_age" pInputText name="staff_age" formControlName="staff_age"/>
+              <label for="staff_age">Edad</label>
+            </span>
+            <div *ngIf="StaffForm.get('staff_age')?.invalid && StaffForm.get('staff_age')?.errors && (StaffForm.get('staff_age')?.dirty || StaffForm.get('staff_age')?.touched)">
+              <small class="text-danger" *ngIf="StaffForm.get('staff_age')?.hasError('required')">
+                <p>Necesitas ingresar la edad</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-envelope"></i>
+              <input type="email" id="staff_email" pInputText name="staff_email" formControlName="staff_email"/>
+              <label for="staff_email">Correo</label>
+            </span>
+            <div *ngIf="StaffForm.get('staff_email')?.invalid && StaffForm.get('staff_email')?.errors && (StaffForm.get('staff_email')?.dirty || StaffForm.get('staff_email')?.touched)">
+              <small class="text-danger" *ngIf="StaffForm.get('staff_email')?.hasError('required')">
+                <p>Necesitas ingresar el correo</p>
+              </small>
+              <small class="text-danger" *ngIf="StaffForm.get('staff_email')?.hasError('email')">
+                <p>Correo inválido</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-phone"></i>
+              <input
+                type="number"
+                id="staff_number_phone"
+                pInputText
+                name="staff_number_phone"
+                formControlName="staff_number_phone"
+              />
+              <label for="staff_number_phone">Número de teléfono</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('staff_number_phone')?.invalid &&
+                StaffForm.get('staff_number_phone')?.errors &&
+                (StaffForm.get('staff_number_phone')?.dirty ||
+                  StaffForm.get('staff_number_phone')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  StaffForm.get('staff_number_phone')?.hasError('required')
+                "
+              >
+                <p>Necesitas ingresar el número de teléfono</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-12 lg:col-12">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-map-marker"></i>
+              <input
+                type="text"
+                id="staff_address"
+                pInputText
+                name="staff_address"
+                formControlName="staff_address"
+              />
+              <label for="staff_address">Dirección</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('staff_address')?.invalid &&
+                StaffForm.get('staff_address')?.errors &&
+                (StaffForm.get('staff_address')?.dirty ||
+                  StaffForm.get('staff_address')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="StaffForm.get('staff_address')?.hasError('required')"
+              >
+                <p>Necesitas ingresar una dirección</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-briefcase"></i>
+              <p-dropdown [options]="workstation" [(ngModel)]="workstationModel" [ngModelOptions]="{standalone: true}"
+                placeholder="Seleccionar puesto de trabajo" optionLabel="workstation_description" inputId="float-label">
+              </p-dropdown>
+              <label for="float-label">Puesto de trabajo</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('workstationWorkstationUid')?.invalid &&
+                StaffForm.get('workstationWorkstationUid')?.errors &&
+                (StaffForm.get('workstationWorkstationUid')?.dirty ||
+                  StaffForm.get('workstationWorkstationUid')?.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="
+                  StaffForm.get('workstationWorkstationUid')?.hasError('required')
+                "
+              >
+                <p>Necesitas seleccionar puesto de trabajo</p>
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 lg:col-6">
+            <span class="p-float-label p-input-icon-left">
+              <i class="pi pi-briefcase"></i>
+              <p-dropdown [options]="workTeams" [(ngModel)]="workTeamModel" [ngModelOptions]="{standalone: true}"
+                placeholder="Seleccionar equipo de trabajo" optionLabel="work_team_name" inputId="float-label">
+              </p-dropdown>
+              <label for="float-label">Equipo de trabajo</label>
+            </span>
+            <div
+              *ngIf="
+                StaffForm.get('workTeamWorkTeamUid')?.invalid &&
+                StaffForm.get('workTeamWorkTeamUid')?.errors &&
+                (StaffForm.get('workTeamWorkTeamUid')?.dirty ||
+                  StaffForm.get('workTeamWorkTeamUid')?.touched)
+              "
+            >
+              <small class="text-danger" *ngIf="StaffForm.get('workTeamWorkTeamUid')?.hasError('required')">
+                <p>Necesitas seleccionar puesto de trabajo</p>
+              </small>
+            </div>
+          </div>
+        </div>
+        <nz-divider></nz-divider>
+        <div class="p-fluid grid">
+          <div *ngIf="!staff_uid" class="col-12 md:col-12 flex justify-content-center">
+            <div class="field col-12 md:col-4">
+              <button class="btn-save" pButton pRipple type="submit" label="GUARDAR"></button>
+            </div>
+          </div>
+          <div
+            *ngIf="staff_uid"
+            class="col-12 md:col-12 flex justify-content-center"
+          >
+            <div class="field col-12 md:col-4">
+              <button
+                class="btn-update"
+                pButton
+                pRipple
+                type="submit"
+                label="ACTUALIZAR"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nz-card>
+  </div>
+</div>

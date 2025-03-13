@@ -1,0 +1,116 @@
+<p-dialog
+  header="Agregar Plan"
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onHide()"
+>
+  <form [formGroup]="PlansForm" (ngSubmit)="Save()">
+    <br />
+    <div class="p-fluid grid flex justify-content-center">
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="plans_name"
+            pInputText
+            name="plans_name"
+            formControlName="plans_name"
+          />
+          <label for="plans_name">Nombre</label>
+        </span>
+        <div
+          *ngIf="
+            PlansForm.get('plans_name')?.invalid &&
+            PlansForm.get('plans_name')?.errors &&
+            (PlansForm.get('plans_name')?.dirty ||
+              PlansForm.get('plans_name')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="PlansForm.get('plans_name')?.hasError('required')"
+          >
+            <p>Necesitas ingresar un nombre</p>
+          </small>
+        </div>
+      </div>
+
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="plans_description"
+            pInputText
+            name="plans_description"
+            formControlName="plans_description"
+          />
+          <label for="plans_description">Descripcion del plan</label>
+        </span>
+        <div
+          *ngIf="
+            PlansForm.get('plans_description')?.invalid &&
+            PlansForm.get('plans_description')?.errors &&
+            (PlansForm.get('plans_description')?.dirty ||
+              PlansForm.get('plans_description')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="PlansForm.get('plans_description')?.hasError('required')"
+          >
+            <p>Necesitas ingresar descripcion</p>
+          </small>
+        </div>
+      </div>
+
+      <div class="field col-12 md:col-12 lg:col-12">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="plans_price"
+            pInputText
+            name="plans_price"
+            formControlName="plans_price"
+          />
+          <label for="plans_price">Precio</label>
+        </span>
+        <div
+          *ngIf="
+            PlansForm.get('plans_price')?.invalid &&
+            PlansForm.get('plans_price')?.errors &&
+            (PlansForm.get('plans_price')?.dirty ||
+              PlansForm.get('plans_price')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="PlansForm.get('plans_price')?.hasError('required')"
+          >
+            <p>Necesitas ingresar el precio</p>
+          </small>
+        </div>
+      </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="p-fluid grid">
+      <div
+        *ngIf="!plans_uid"
+        class="col-12 md:col-12 flex justify-content-center"
+      >
+        <div class="field col-12 md:col-4">
+          <button pButton pRipple type="submit" label="Agregar"></button>
+        </div>
+      </div>
+      <div *ngIf="plans_uid" class="col-12 md:col-12 lg:col-12">
+        <div class="grid">
+          <div class="field col-6 md:col-6 lg:col-6">
+            <button pButton pRipple type="submit" label="Editar"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

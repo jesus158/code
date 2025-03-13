@@ -1,0 +1,106 @@
+<div class="grid">
+  <div class="field col-12 md:col-12 lg:col-12">
+    <nz-card class="nz-card-header">
+      <div class="p-fluid grid">
+        <div class="field col-12 md:col-12 lg:col-12">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText [(ngModel)]="value" />
+            <label for="search">BUSQUEDA Y FILTRO</label>
+          </span>
+        </div>
+      </div>
+      <nz-divider nzText="HOY"></nz-divider>
+    </nz-card>
+  </div>
+</div>
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <nz-card class="nz-card-header">
+      <div class="grid">
+        <div class="col-12 md:col-4 lg:col-3 flex align-items-end">
+          <p-avatar styleClass="mr-2" size="xlarge" shape="circle">
+            <p-avatar
+              class="avatar"
+              styleClass="mr-2"
+              shape="circle"
+              [style]="{ 'background-color': '#eeeeff' }"
+            ></p-avatar>
+          </p-avatar>
+        </div>
+        <div class="col-12 md:col-8 lg:col-9">
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12">
+              <nz-card class="card-chat-receive">
+                <h6>HOY 03:30 OLIVER ZARZA. Ver comentario</h6>
+                <h6>Información por favor</h6>
+              </nz-card>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-12 md:col-8 lg:col-9">
+          <div class="grid">
+            <div class="col-12 md:col-12 lg:col-12">
+              <nz-card class="card-chat-receive">
+                <h6>HOY 03:30 LEOBARDO LOPEZ Entregado</h6>
+                <h6>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  consectetur ac lectus vitae iaculis. Pellentesque vitae
+                  posuere arcu, sed venenatis tortor. Etiam quis gravida quam,
+                  hendrerit tristique augue. Proin quis velit sem. Ut finibus
+                  volutpat felis id placerat. Sed ultricies lectus vel sagittis
+                  egestas. In auctor ut nulla vel tempor. Sed nulla odio,
+                  accumsan at velit sed, placerat volutpat ex.
+                </h6>
+              </nz-card>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4 lg:col-3 flex align-items-end">
+          <p-avatar styleClass="mr-2" size="xlarge" shape="circle">
+            <p-avatar
+              class="avatar"
+              styleClass="mr-2"
+              shape="circle"
+              [style]="{ 'background-color': '#eeeeff' }"
+            ></p-avatar>
+          </p-avatar>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-12 md:col-6 lg:col-6">
+          <button
+            class="bg-blue"
+            pButton
+            pRipple
+            label="MARQUE RESUELTO"
+          ></button>
+        </div>
+        <div class="col-12 md:col-6 lg:col-6 flex align-items-center">
+          <h4>Conversación # A581</h4>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
+<div class="p-fluid grid">
+  <div class="field col-12 md:col-12 lg:col-12">
+    <nz-card class="nz-card-header">
+      <span class="p-float-label">
+        <textarea
+          id="float-input"
+          rows="5"
+          cols="30"
+          pInputTextarea
+          [autoResize]="true"
+        ></textarea>
+        <label for="float-input">ESCRIBA EL TEXTO AQUÍ...</label>
+      </span>
+      <div class="field col-12 md:col-12 lg:col-12 flex justify-content-end">
+        <button class="bg-blue" pButton pRipple label="ENVIAR"></button>
+      </div>
+    </nz-card>
+  </div>
+</div>

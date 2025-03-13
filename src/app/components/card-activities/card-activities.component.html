@@ -1,0 +1,20 @@
+<div class="p-fluid grid">
+  <ng-container *ngIf="!loading">
+    <div class="col-12 md:col-12 lg:col-12" *ngFor="let activity of activities">
+      <nz-card class="card-activities" [appColorActivity]="activity.activities_type">
+        <div class="flex align-items-center">
+          <img src="assets/{{activity.activities_type}}.png" [attr.alt]="activity.activities_type" height="40px">
+          <div class="ml-3 flex flex-column">
+            <h3 style="margin-bottom: -2px">{{activity.activities_type}} {{activity.activities_date | date: "dd/MM/yyyy"}}</h3>
+            <p class="line-height-2">{{activity.activities_assign_to?.user_name}}</p>
+            <p class="line-height-2" style="text-wrap: pretty; margin-bottom: -2px">{{activity.activities_description}}</p>
+            <small>Fecha registro: {{activity.activities_save_date | date: "dd/MM/yyyy hh:mm a"}}</small>
+          </div>
+        </div>
+      </nz-card>
+    </div>
+    <div class="col-12 md:col-12 lg:col-12" *ngIf="activities?.length == 0">
+      <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </div>
+  </ng-container>
+</div>

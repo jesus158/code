@@ -1,0 +1,90 @@
+<nz-card>
+  <br />
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-6 lg:col-6">Listado de leads</div>
+    <div class="field col-12 md:col-6 lg:col-6">
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          (keyup)="Search($event)"
+          (input)="inputValidator($event)"
+        />
+        <label for="float-input">Buscar leads</label>
+      </span>
+    </div>
+  </div>
+  <p-table [value]="leads">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Contacto/Empresa</th>
+        <th>Descripcion</th>
+        <th>Celular</th>
+        <th>Correo</th>
+        <th>Último seguimiento</th>
+        <th>Asignado a</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-leads>
+      <tr>
+        <td>{{ leads.leads_company }}</td>
+        <td>{{ leads.leads_description }}</td>
+        <td>{{ leads.leads_office_phone }}</td>
+        <td>{{ leads.leads_email }}</td>
+        <td>{{ leads.leads_last_follow_up }}</td>
+        <td>{{ leads.leads_assigned_to }}</td>
+        <td>
+          <p-badge
+            [value]="'Pasar a cliente'"
+            (click)="update_lead_to_customer(leads.leads_uid)"
+            [style]="{ 'background-color': '#22A055' }"
+          ></p-badge>
+          <p-badge
+            (click)="onLeadsEdit(leads.leads_uid)"
+            [value]="'Actualizar'"
+            [style]="{ 'background-color': '#254E89' }"
+          ></p-badge>
+          <p-badge
+            (click)="Delete(leads.leads_uid)"
+            [value]="'Desactivar'"
+            [style]="{ 'background-color': '#892525' }"
+          ></p-badge>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div class="grid">
+    <div
+      class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+    >
+      <p-messages
+        [(value)]="messages"
+        [enableService]="false"
+        [closable]="false"
+      ></p-messages>
+    </div>
+  </div>
+</nz-card>
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <h3>{{ message }}</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      label="No"
+      (click)="cd.reject()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      label="Sí"
+      (click)="cd.accept()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

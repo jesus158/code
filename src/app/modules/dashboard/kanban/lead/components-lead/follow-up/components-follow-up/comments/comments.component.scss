@@ -1,0 +1,47 @@
+nz-card {
+  border-radius: 20px !important;
+}
+
+.card-header {
+  height: 500px !important;
+}
+
+.card-chat {
+  list-style-type: none;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 250px !important;
+}
+
+.comments {
+  border-radius: 10px !important;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.card-chat::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.card-chat::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.card-chat::-webkit-scrollbar-button:increment,
+.card-chat::-webkit-scrollbar-button {
+  display: none;
+}
+
+.card-chat::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.card-chat::-webkit-scrollbar-thumb {
+  background-color: #254e89;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.card-chat::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

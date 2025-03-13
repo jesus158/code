@@ -1,0 +1,37 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="210px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="container-scroll">
+      <div class="box-shadow">
+        <div class="circle text-center cursor-pointer" (click)="collapse()">
+          <span nz-icon [nzType]="isCollapsed ? 'right' : 'left'"></span>
+        </div>
+      </div>
+      <div class="sidebar-logo">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+        <h1>PROSPECFY</h1>
+      </div>
+      <ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li *ngFor="let item of nav"
+        nz-menu-item nz-tooltip [nzMatchRouter]="true"
+        nzTooltipPlacement="right"
+        [nzTooltipTitle]="isCollapsed ? item.name : ''"
+        [routerLink]="item.path">
+          <span nz-icon [nzType]="item.icon" style="color: #737373"></span>
+          <span>{{ item.name }}</span>
+        </li>
+      </ul>
+    </div>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <app-navbar></app-navbar>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,331 @@
+<div class="grid">
+  <div
+    style="background-color: #5178ae"
+    class="col-12 md:col-6 lg:col-6 flex justify-content-center align-items-center"
+  >
+    <div class="text-center">
+      <img
+        width="100%"
+        height="100%"
+        src="../../../../assets/Launching.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <div
+    class="col-12 md:col-6 lg:col-6 flex justify-content-center align-items-center"
+  >
+    <form [formGroup]="BusinessForm" (ngSubmit)="auth()">
+      <div class="p-fluid grid flex justify-content-center align-items-center">
+        <div class="field col-12 md:col-10">
+          <div class="text-center">
+            <img src="../../../../assets/Prospecfy.png" width="200" alt="" />
+            <h2>Bienvenido de nuevo, ¿cómo estás hoy?</h2>
+            <p>Por favor ingrese la siguiente información para continuar.</p>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input
+              type="text"
+              id="business_owner_firts_name"
+              pInputText
+              name="business_owner_firts_name"
+              formControlName="business_owner_firts_name"
+            />
+            <label for="business_owner_firts_name">Nombres</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_firts_name')?.invalid &&
+              BusinessForm.get('business_owner_firts_name')?.errors &&
+              (BusinessForm.get('business_owner_firts_name')?.dirty ||
+                BusinessForm.get('business_owner_firts_name')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_firts_name')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas ingresar al menos el primer nombre</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input
+              type="text"
+              id="business_owner_last_name"
+              pInputText
+              name="business_owner_last_name"
+              formControlName="business_owner_last_name"
+            />
+            <label for="business_owner_last_name">Apellidos</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_last_name')?.invalid &&
+              BusinessForm.get('business_owner_last_name')?.errors &&
+              (BusinessForm.get('business_owner_last_name')?.dirty ||
+                BusinessForm.get('business_owner_last_name')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_last_name')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas ingresar tus apellidos</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input
+              type="text"
+              id="business_owner_username"
+              pInputText
+              name="business_owner_username"
+              formControlName="business_owner_username"
+            />
+            <label for="business_owner_username">Nombre de usuario</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_username')?.invalid &&
+              BusinessForm.get('business_owner_username')?.errors &&
+              (BusinessForm.get('business_owner_username')?.dirty ||
+                BusinessForm.get('business_owner_username')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_username')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas un nombre de usuario</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-flag"></i>
+            <input
+              type="text"
+              id="business_owner_country"
+              pInputText
+              name="business_owner_country"
+              formControlName="business_owner_country"
+            />
+            <label for="business_owner_country">País</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_country')?.invalid &&
+              BusinessForm.get('business_owner_country')?.errors &&
+              (BusinessForm.get('business_owner_country')?.dirty ||
+                BusinessForm.get('business_owner_country')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_country')?.hasError('required')
+              "
+            >
+              <p>Necesitas ingresar tu país</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-envelope"></i>
+            <input
+              type="text"
+              id="business_owner_email"
+              pInputText
+              name="business_owner_email"
+              formControlName="business_owner_email"
+            />
+            <label for="business_owner_email">Correo</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_email')?.invalid &&
+              BusinessForm.get('business_owner_email')?.errors &&
+              (BusinessForm.get('business_owner_email')?.dirty ||
+                BusinessForm.get('business_owner_email')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_email')?.hasError('required')
+              "
+            >
+              <p>Necesitas ingresar tu correo</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-phone"></i>
+            <input
+              type="number"
+              id="business_owner_number_phone"
+              pInputText
+              name="business_owner_number_phone"
+              formControlName="business_owner_number_phone"
+            />
+            <label for="business_owner_number_phone">Número de teléfono</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_number_phone')?.invalid &&
+              BusinessForm.get('business_owner_number_phone')?.errors &&
+              (BusinessForm.get('business_owner_number_phone')?.dirty ||
+                BusinessForm.get('business_owner_number_phone')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_number_phone')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas ingresar tu número de teléfono</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-12 lg:col-12">
+          <span class="p-float-label">
+            <p-calendar
+              formControlName="business_owner_birthday"
+              [touchUI]="true"
+            ></p-calendar>
+            <label for="business_owner_birthday">Fecha de nacimiento</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_birthday')?.invalid &&
+              BusinessForm.get('business_owner_birthday')?.errors &&
+              (BusinessForm.get('business_owner_birthday')?.dirty ||
+                BusinessForm.get('business_owner_birthday')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_birthday')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas ingresar tu fecha de nacimiento</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input
+              type="password"
+              id="business_owner_password"
+              pInputText
+              name="business_owner_password"
+              formControlName="business_owner_password"
+            />
+            <label for="business_owner_password">Contraseña</label>
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_password')?.invalid &&
+              BusinessForm.get('business_owner_password')?.errors &&
+              (BusinessForm.get('business_owner_password')?.dirty ||
+                BusinessForm.get('business_owner_password')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_password')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas ingresar tu contraseña</p>
+            </small>
+          </div>
+        </div>
+        <div class="field col-12 md:col-6 lg:col-6">
+          <span class="p-float-label p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input
+              type="password"
+              id="business_owner_confirm_password"
+              pInputText
+              name="business_owner_confirm_password"
+              formControlName="business_owner_confirm_password"
+            />
+            <label for="business_owner_confirm_password"
+              >Confirmar contraseña</label
+            >
+          </span>
+          <div
+            *ngIf="
+              BusinessForm.get('business_owner_confirm_password')?.invalid &&
+              BusinessForm.get('business_owner_confirm_password')?.errors &&
+              (BusinessForm.get('business_owner_confirm_password')?.dirty ||
+                BusinessForm.get('business_owner_confirm_password')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                BusinessForm.get('business_owner_confirm_password')?.hasError(
+                  'required'
+                )
+              "
+            >
+              <p>Necesitas ingresar la confirmación de la contraseña</p>
+            </small>
+          </div>
+          <small
+            class="text-danger"
+            *ngIf="BusinessForm.errors?.['confirm'] && (BusinessForm.touched || BusinessForm.dirty)"
+          >
+            <p>Las contraseñas no coinciden.</p>
+          </small>
+        </div>
+      </div>
+      <nz-divider></nz-divider>
+      <div class="p-fluid grid flex justify-content-center align-items-center">
+        <div class="col-12 md:col-6">
+          <div class="col-12 md:col-12 lg:col-12">
+            <a (click)="Login()"> Ya tienes una cuenta? Ingresa aquí</a>
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="field col-12 md:col-12 lg:col-12">
+            <button pButton pRipple type="submit" label="Registrarse"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="grid">
+  <div class="field col-12 md:col-12 lg:col-12 align-items-center">
+    <nz-page-header (nzBack)="goBack()" nzBackIcon nzTitle="{{code}}"></nz-page-header>
+  </div>
+  <div class="col-12 md:col-4 lg:col-4">
+    <nz-card nzTitle="Información">
+      <p class="white-space-nowrap overflow-hidden text-overflow-ellipsis">Cliente: {{lead()?.lead_company}}</p>
+      <p>Correo: {{lead()?.lead_email}}</p>
+      <p>Teléfono: {{lead()?.lead_phone}}</p>
+    </nz-card>
+    <nz-card nzTitle="" class="mt-5">
+      <p>- Correo ({{totalEmails}})</p>
+      <p>- Llamada ({{totalCalls}})</p>
+      <p>- Reunión ({{totalMeetings}})</p>
+      <p>- Visita ({{totalVisits}})</p>
+      <p>- Whatsapp ({{totalWhatsapps}})</p>
+      <p>- Otro ({{totalOthers}})</p>
+    </nz-card>
+  </div>
+  <div class="overflow-auto col-12 md:col-4 lg:col-4 h-screen">
+    <nz-card nzTitle="Actividades" [nzExtra]="extraTemplates">
+      <app-card-activities [activities]="lead()?.activities"></app-card-activities>
+      <ng-template #extraTemplates>
+        <button nz-button nzType="primary" nzShape="circle" type="button" (click)="modalActivity()">
+          <span nz-icon nzType="plus" nzTheme="outline"></span>
+        </button>
+      </ng-template>
+    </nz-card>
+  </div>
+  <div class="overflow-auto col-12 md:col-4 lg:col-4 h-screen">
+    <nz-card nzTitle="Línea de tiempo">
+      <app-card-timelines [timelines]="lead()?.timeline"></app-card-timelines>
+    </nz-card>
+  </div>
+</div>

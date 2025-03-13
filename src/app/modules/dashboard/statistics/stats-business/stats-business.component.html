@@ -1,0 +1,341 @@
+<div class="grid flex justify-content-start align-items-center">
+  <div
+    class="col-12 md:col-12 lg:col-12 flex justify-content-start align-items-center"
+  >
+    <span class="p-buttonset">
+      <button pButton pRipple label="HOY"></button>
+      <button pButton pRipple label="AYER"></button>
+      <button pButton pRipple label="SEMANA"></button>
+      <button pButton pRipple label="MES"></button>
+      <button pButton pRipple label="AÑO"></button>
+      <button pButton pRipple label="FECHAS"></button>
+    </span>
+  </div>
+</div>
+<div class="grid">
+  <div class="col-12 md:col-12 lg:col-12">
+    <nz-card>
+      <div class="grid flex justify-content-center align-items-center">
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          Leads
+        </div>
+
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          WhatsApp
+        </div>
+
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          Facebook
+        </div>
+
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          Instagram
+        </div>
+      </div>
+      <br />
+      <div class="grid flex justify-content-center align-items-center">
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          Seguimiento
+        </div>
+
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          Conversiones
+        </div>
+
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          % Conversiones
+        </div>
+
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          Perdidos
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
+<div class="grid flex justify-content-center align-items-center">
+  <div
+    class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+  >
+    <nz-card>
+      <div class="grid flex justify-content-center align-items-center">
+        <div
+          class="col-12 md:col-8 lg:col-6 flex justify-content-center align-items-center"
+        >
+          <div class="grid flex justify-content-center align-items-center">
+            <div
+              class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+            >
+              Ventas
+            </div>
+            <div
+              class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+            >
+              <app-bar-charts></app-bar-charts>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 md:col-8 lg:col-6 flex justify-content-center align-items-center"
+        >
+          <div class="grid flex justify-content-center align-items-center">
+            <div
+              class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+            >
+              Participación
+            </div>
+            <div
+              class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+            >
+              <app-pie-charts></app-pie-charts>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
+<div class="grid flex justify-content-center align-items-center">
+  <div
+    class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+  >
+    <nz-card>
+      <div class="grid flex justify-content-center align-items-center">
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          <nz-card style="background-color: #eef5ff">
+            <div class="grid flex justify-content-center align-items-center">
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <h4>FACEBOOK</h4>
+              </div>
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <nz-progress
+                  [nzPercent]="75"
+                  nzType="circle"
+                  [nzWidth]="80"
+                  [nzStrokeWidth]="10"
+                ></nz-progress>
+              </div>
+              <div class="col-12 md:col-12 lg:col-12">
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                ></nz-progress>
+              </div>
+            </div>
+          </nz-card>
+        </div>
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          <nz-card style="background-color: #e9ffeb">
+            <div class="grid flex justify-content-center align-items-center">
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <h4>WHATSAPP</h4>
+              </div>
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <nz-progress
+                  [nzPercent]="75"
+                  nzType="circle"
+                  [nzWidth]="80"
+                  [nzStrokeWidth]="10"
+                  [nzStrokeColor]="'#03EC1A'"
+                ></nz-progress>
+              </div>
+              <div class="col-12 md:col-12 lg:col-12">
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#03EC1A'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#03EC1A'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#03EC1A'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#03EC1A'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#03EC1A'"
+                ></nz-progress>
+              </div>
+            </div>
+          </nz-card>
+        </div>
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          <nz-card style="background-color: #ffe8f4">
+            <div class="grid flex justify-content-center align-items-center">
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <h4>INSTAGRAM</h4>
+              </div>
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <nz-progress
+                  [nzPercent]="75"
+                  nzType="circle"
+                  [nzWidth]="80"
+                  [nzStrokeWidth]="10"
+                  [nzStrokeColor]="'#C32179'"
+                ></nz-progress>
+              </div>
+              <div class="col-12 md:col-12 lg:col-12">
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#C32179'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#C32179'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#C32179'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#C32179'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#C32179'"
+                ></nz-progress>
+              </div>
+            </div>
+          </nz-card>
+        </div>
+        <div
+          class="col-12 md:col-6 lg:col-3 flex justify-content-center align-items-center"
+        >
+          <nz-card style="background-color: #fff2e9">
+            <div class="grid flex justify-content-center align-items-center">
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <h4>OTROS</h4>
+              </div>
+              <div
+                class="col-12 md:col-12 lg:col-12 flex justify-content-center align-items-center"
+              >
+                <nz-progress
+                  [nzPercent]="75"
+                  nzType="circle"
+                  [nzWidth]="80"
+                  [nzStrokeWidth]="10"
+                  [nzStrokeColor]="'#EC6503'"
+                ></nz-progress>
+              </div>
+              <div class="col-12 md:col-12 lg:col-12">
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#EC6503'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#EC6503'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="30"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#EC6503'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#EC6503'"
+                ></nz-progress>
+                <nz-progress
+                  [nzPercent]="50"
+                  nzStatus="active"
+                  [nzShowInfo]="false"
+                  [nzStrokeColor]="'#EC6503'"
+                ></nz-progress>
+              </div>
+            </div>
+          </nz-card>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
